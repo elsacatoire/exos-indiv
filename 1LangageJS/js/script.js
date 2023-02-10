@@ -1,12 +1,12 @@
-//Etape 1 : demande son nom à l'utilisateur
-//déclaration de fonction
+//Etape 1 : demande son nom à l'utilisateur et l'accueille
+//Déclaration de fonction
 function askName() {
-    //ouvre une fenêtre pour demander le prénom de l'usager
-    let nom = prompt("Quel est ton nom ?");
-    //Créé uen variable pour stocker le message d'accueil de l'usager contenant son prénom
+    //Ouvre une fenêtre pour demander le prénom de l'usager
+    let nom = prompt("Quel est ton prénom ?");
+    //Créé une variable pour stocker le message d'accueil de l'usager contenant son prénom
     let accueil = "👋Bonjour " + nom
     console.log(accueil)
-    //Affiche dans la page HTML la variable accueil
+    //Affiche la variable dans la page HTML
     document.body.innerHTML += "<h2>" + accueil +" </h2>"
   }
 
@@ -15,12 +15,12 @@ function askName() {
 function askBirthYear() {
     //ouvre une fenêtre pour demander l'année de naissance de l'usager, puis une nouvelle fenêtre pour le mois
     let anneeN = prompt("Merci de renseigner ton année de naissance au format XXXX")
-    //s'assure que l'entrée de 4 caractères
+    //s'assure que l'entrée année est bien de 4 caractères
     while (anneeN.length != 4){
         anneeN = prompt("Il est important de renseigner ton année de naissance au BON format XXXX");
     }
     let moisN = prompt("Merci de renseigner ton mois de naissance au format XX, ex mars = 03");
-    //récupère l'année actuelle et la stocke dans une variable anneA, puis récupère le mois actuel et le stocke dans une variable mois
+    //récupère l'année actuelle et la stocke dans une variable anneeA, puis récupère le mois actuel et le stocke dans la variable moisA
     const d = new Date();
     let anneeA = d.getFullYear();
     const m = new Date();
