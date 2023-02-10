@@ -1,31 +1,42 @@
-//demande son nom à l'utilisateur
+//Etape 1 : demande son nom à l'utilisateur
+//déclaration de fonction
 function askName() {
+    //ouvre une fenêtre pour demander le prénom de l'usager
     let nom = prompt("Quel est ton nom ?");
-    let accueil = "Bonjour " + nom
+    //Créé uen variable pour stocker le message d'accueil de l'usager contenant son prénom
+    let accueil = "👋Bonjour " + nom
     console.log(accueil)
+    //Affiche dans la page HTML la variable accueil
     document.body.innerHTML += "<h2>" + accueil +" </h2>"
   }
 
-//demande l'année de naissance, calcul l'age et l'affiche
-
+//Etape 2 : demande l'année de naissance, calcule son age et l'affiche
+//déclaration de fonction
 function askBirthYear() {
-    let anneeN = prompt("Merci de renseigner ton année de naissance au format XXX");
-    let moisN = prompt("Merci de renseigner ton mois de naissance au format X, ex mars = 3");
+    //ouvre une fenêtre pour demander l'année de naissance de l'usager, puis une nouvelle fenêtre pour le mois
+    let anneeN = prompt("Merci de renseigner ton année de naissance au format XXXX")
+    //s'assure que l'entrée de 4 caractères
+    while (anneeN.length != 4){
+        anneeN = prompt("Il est important de renseigner ton année de naissance au BON format XXXX");
+    }
+    let moisN = prompt("Merci de renseigner ton mois de naissance au format XX, ex mars = 03");
+    //récupère l'année actuelle et la stocke dans une variable anneA, puis récupère le mois actuel et le stocke dans une variable mois
     const d = new Date();
     let anneeA = d.getFullYear();
-    const m = new Date()
-    let mois = m.getMonth()
-    console.log(mois)
-    
+    const m = new Date();
+    let mois = m.getMonth();
+    console.log(mois);
+    //compare le mois de naissance et le mois actuel afin d'affiner l'âge de l'usager et calcule l'âge de l'usager
     if (moisN <= mois) {
         age = anneeA - anneeN
     } else {
         age = ( anneeA - anneeN ) - 1
     }
-
-    console.log(age)
+    console.log(age);
+    //Affiche dans la page HTML la variable age
     document.body.innerHTML += "<h3> Tu as " + age + " ans </h3>"
 }
 
+//appelle les fonctions
 askName()
 askBirthYear()
