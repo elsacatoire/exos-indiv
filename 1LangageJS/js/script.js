@@ -40,3 +40,5 @@ function askBirthYear() {
 //appelle les fonctions
 askName()
 askBirthYear()
+
+//je modifie mon fichier pour tester dans GIT
