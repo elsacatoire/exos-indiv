@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="game">
+        <span>0 &lt; </span>
+        <input type="number" id="guess">
+        <span> &lt; 50</span>
+        <button onclick="gamePlay()">Valider</button>
+        <span id="tries">0</span>
+    </p>
+
+    <script>
+
+        const min = 0
+        const max = 50
+
+        function defineWinningNumber() {
+
+            let numberFromPlayerOne;
+
+            do {
+                numberFromPlayerOne = parseInt(window.prompt("Joueur 1, entrez votre nombre" + " " + min + " < ? < " + max, 0))
+            }
+            while (numberFromPlayerOne < min || numberFromPlayerOne > max || isNaN(numberFromPlayerOne));
+
+            return numberFromPlayerOne
+        }
+
+
+        // Function called by player two to guess the number defined by player one.
+        function guessNumberDefinedByPlayerOne() {
+            return document.getElementById("guess").value
+        }
+
+
+        function didIWin(givenNumber, correctNumber) {
+            if (givenNumber == correctNumber) {
+                document.getElementById("game").innerHTML = "Bravo, tu as gagné"
+                return true
+            }
+            else if (givenNumber < correctNumber) {
+                alert("C'est plus grand")
+            }
+            else {
+                alert("C'est plus petit")
+            }
+            return false
+        }
+
+        let tryNumber = 0
+        let winningNumber = defineWinningNumber()
+
+        function gamePlay() {
+            const guessedNumber = guessNumberDefinedByPlayerOne()
+            const isWinning = didIWin(guessedNumber, winningNumber)
+
+            if (!isWinning) {
+                tryNumber++
+                document.getElementById("tries").innerHTML = tryNumber
+            }
+        }
+    </script>
+</body>
+
+</html>

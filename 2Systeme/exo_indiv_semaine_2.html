@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Guess the number</h1>
+    <h2 id = "game">Guess a number between 1 and 50 : </h2>
+    <p id = "give"></p>
+
+    <p id = "win"></p>
+
+   <script>
+    const winnigNumber = 22
+    var givenNumber = 0;
+    var didWin1 = false
+    function askNumber1() {
+        givenNumber = window.prompt("Guess a number between 1 and 50: ");
+        console.log(givenNumber)
+        while (givenNumber > 50 || givenNumber < 0 ){
+            givenNumber = window.prompt("Guess a number between 1 and 50: "); 
+        }
+   // let givenNumber = window.prompt(message)
+    //message = "Devinez le nombre"
+    }
+    
+    function didIWin1(){
+         if(givenNumber == winnigNumber){
+             didWin1 = true;
+             window.alert("Bravo ! Vous avez deviné le nombre !");
+             console.log("it's a win");
+         }
+         else if(givenNumber<winnigNumber){
+             console.log("wrong guess: higher");
+             didWin1 = false;
+             window.alert("Plus grand");
+         }
+         else{
+             console.log("wrong guess: lower");
+             didWin1 = false;
+             window.alert("Plus petit");
+         }
+      
+    }
+
+    function gamePlay(){
+        askNumber1()
+        didIWin1()
+        while(didWin1==false){
+            givenNumber = window.prompt("0 < ? < 50 : ")
+            didIWin1()
+            console.log(didWin1)
+            console.log(givenNumber)
+            document.getElementById("win").innerHTML += "<span>Congratulations! You won</span>" 
+        }
+            document.getElementById("win").innerHTML += "<span>Congratulations! You won</span>" 
+        //}
+        //else{window.alert("Bravo ! Vous avez deviné le nombre !")   
+        //}  
+    }
+    //if (didWin1==false){
+
+    //}
+    gamePlay()
+
+
+
+   </script>
+</body>
+</html>
+!

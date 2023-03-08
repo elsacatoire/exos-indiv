@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const winNumber = 22
+
+        function askNumber() {
+            return parseInt(prompt("Entre un chiffre, stp"))
+        }
+
+        function didIWin(tata) {
+            if (tata == winNumber) {
+                alert("Bravo, tu as gagné")
+                return true
+            }
+            else if (tata < winNumber) {
+                alert("C'est plus grand")
+            }
+            else {
+                alert("C'est plus petit")
+            }
+            return false
+        }
+
+        function gamePlay() {
+            let number = 0
+            let stock = false
+            do {
+                number = askNumber()
+                stock = didIWin(number)
+            } while (stock == false);
+        }
+
+        gamePlay()
+    </script>
+</body>
+
+</html>

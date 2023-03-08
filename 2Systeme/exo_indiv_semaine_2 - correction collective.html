@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Guess the number</h1>
+   
+
+   <script>
+    const winNumber = 22
+
+
+    function askNumber(){
+        let givenNumber = parseInt(prompt("Entrez un chiffre"))
+        console.log(givenNumber)
+        return givenNumber
+
+        //ou on peut la déclarer en une ligne :
+        //return parseInt(prompt("Entrez un chiffre"))
+    }
+
+    function didIWin(givenNumber) {
+        if (givenNumber == winNumber) {
+            alert("Bravo")
+            return true
+        } else if (givenNumber < winNumber){
+            alert("Plus grand")
+        } else {
+            alert("Plus petit")
+        }
+        return false
+    }
+
+    function gamePlay() {
+        //number stocke le résultat de Parsint
+        let number = 0
+        let stock = false
+        do {
+            number = askNumber()
+            stock = didIWin(number)
+        }
+        while(stock == false)
+        
+    }
+    gamePlay()
+   </script>
+</body>
+</html>

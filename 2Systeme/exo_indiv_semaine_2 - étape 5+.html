@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Guess the number</h1>
+    <h2 id = "game">Guess a number between 1 and 50 : </h2>
+    <h3>PLAYER 1 :</h3>
+    <p id = "give1"><br>
+        <span id = "lowguess1"></span>
+        <form method="get" action="page.htm">
+            <input type="number" name="envoyer" value="Soumettre">
+        </form>
+        <span id = "highguess1"></span>
+    </p>
+    <br>
+    <br>
+    <p id = "win1"></p>
+    <br>
+    <hr>
+    <br>
+    <h3>PLAYER 2 :</h3>
+    <p id = "give2"><br>
+        <span id = "lowguess2"></span>
+        <form>
+            <input type="number" name="envoyer" value="Soumettre">
+        </form>
+        <span id = "highguess2"></span>
+    </p>
+    <br>
+    <br>
+    <p id = "win2"></p>
+
+   <script>
+    //déclaration des variables nombre à deviner / porposition du J1 / proposition du J2
+    const winnigNumber = 22
+    var givenNumber1 = 0;
+    var givenNumber2 = 0
+    var didWin1 = false
+    var didWin2 = false
+
+    //Focntion qui demande au J1 de proposer un nombre
+    function askNumber1() {
+        givenNumber1 = window.prompt("PLAYER 1 : Guess a number between 1 and 50: ");
+        console.log("J1 : " + givenNumber1)
+        while (givenNumber1 > 50 || givenNumber1 < 0 ){
+            givenNumber1 = window.prompt("Guess a number between 1 and 50: "); 
+        }
+
+    }
+    //Focntion qui demande au J2 de proposer un nombre
+    function askNumber2() {
+        givenNumber2 = window.prompt("PLAYER 2 : Guess a number between 1 and 50: ");
+        console.log("J2 : " + givenNumber2)
+        while (givenNumber2 > 50 || givenNumber2 < 0 ){
+            givenNumber1 = window.prompt("Guess a number between 1 and 50: "); 
+        }
+    }
+
+    //Fonction qui vérifie si le joueur 1 a gagné
+    function didIWin1(){
+        if(givenNumber1>winnigNumber){
+            //for (i=0 ; i<50 ; i++){
+                console.log("wrong guess: lower");
+                didWin1 = false;
+                document.getElementById("give1").innerHTML += "<span>try again Higher :  0 < ? < 50 </span> <br>" + "<span> n°" + (i+1) + "guess </span>"
+            //}
+        }
+         else if(givenNumber1<winnigNumber){
+             console.log("wrong guess: higher");
+             didWin1 = false;
+             document.getElementById("give1").innerHTML += "<span>try again Lower : 0 < ? < 50 </span> <br>" + "<span> n°" + (i+1) + "guess </span>"
+         }
+         else{
+            didWin1 = true;
+            console.log("it's a win");
+         }
+    }
+
+    ////Fonction qui vérifie si le joueur 2 a gagné
+    function didIWin2(){
+        if(givenNumber2>winnigNumber){
+            //for (j=0 ; j<50 ; j++){
+                console.log("wrong guess: lower");
+                didWin2 = false;
+                document.getElementById("give2").innerHTML += "<span>try again Higher :  0 < ? < 50 </span> <br>" + "<span> n°" + j + "guess </span>"
+            //}
+        }
+         else if(givenNumber2<winnigNumber){
+             console.log("wrong guess: higher");
+             didWin2 = false;
+             document.getElementById("give2").innerHTML += "<span>try again Lower : 0 < ? < 50 </span> <br>" + "<span> n°" + j + "guess </span>"
+         }
+         else{
+            didWin2 = true;
+            console.log("it's a win");
+         }
+    }
+
+    //on joue !
+    function gamePlay(){
+        askNumber1()
+        askNumber2()
+        didIWin1()
+        while(didWin1==false){
+            givenNumber1 = window.prompt("0 < ? < 50 : ")
+            didIWin1()
+            console.log(didWin1)
+            console.log(givenNumber1)
+            document.getElementById("give").innerHTML += "<span>try again 0 < ? < 50 </span>" 
+        }
+            document.getElementById("win").innerHTML += "<span><b>Congratulations!</b> You won</span>" 
+        //}
+        //else{window.alert("Bravo ! Vous avez deviné le nombre !")   
+        //}  
+    }
+    //if (didWin1==false){
+
+    //}
+    gamePlay()
+
+
+
+   </script>
+</body>
+</html>
