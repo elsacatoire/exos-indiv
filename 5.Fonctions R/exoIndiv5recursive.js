@@ -1,5 +1,8 @@
+//exo individuel 5 
+
 const arrayInt = [1, 3, 6]
 
+//fonction qui additionne les élèment d'une array
 function sum1(array) {
     let sum11 = 0;
     for (let i = 0; i < array.length; i++) {
@@ -22,8 +25,7 @@ function sum2(arr) {
 }
 console.log(sum2(listeTest))
 
-//factoriel
-
+//fonction récursive qui sort les factoriels
 function factorial(x) {
     if ((x === 0) || (x === 1)) {
         return 1;
@@ -33,3 +35,40 @@ function factorial(x) {
     }
 }
 console.log(factorial(4))
+
+//fibonacci en ???
+function fibonacci(x) {
+    if (x === 0) {
+        return []
+    }
+    else if (x === 1) {
+        return [0]
+    }
+    else if (x === 2) {
+        return [0, 1]
+    }
+    else {
+        const fib = [0, 1]
+        for (let i = 2; i < x; i++) {
+            fib[i] = fib[i - 1] + fib[i - 2]
+        }
+        return fib
+    }
+
+}
+console.log(fibonacci(10))
+
+//méthode 2 en récursive
+let x = 10
+function fibonacci2(x) {
+    if (x < 2) {
+        return x
+    }
+    return fibonacci2(x - 1) + fibonacci2(x - 2)
+}
+for (let i = 0; i < 10; i++) {
+    console.log(fibonacci2(i))
+}
+
+
+
