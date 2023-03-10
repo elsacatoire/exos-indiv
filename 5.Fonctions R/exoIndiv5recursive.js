@@ -12,14 +12,14 @@ function sum1(array) {
 console.log(sum1(arrayInt))
 
 //fonction récursive qui aditionne les élèments d'une liste
-function sum2R(array) {
+function sum2(array) {
     if (array.length === 0) {
         return 0;  // Cas de base : retourne 0 si le tableau est vide
     } else {
-        return array[0] + sum2R(array.slice(1));  // Récursion : ajoute le premier élément du tableau à la somme du reste du tableau
+        return array[0] + sum2(array.slice(1));  // Récursion : ajoute le premier élément du tableau à la somme du reste du tableau
     }
 }
-console.log(sum2R(arrayInt))
+console.log(sum2(arrayInt))
 
 
 //fonction récursive qui sort les factoriels
