@@ -127,11 +127,31 @@ function decode(textMorse) {
     let resultMorse = arrFinalMorse.join("")
     return resultMorse.toLocaleLowerCase()
 }
-
-
 console.log(decode(morseToDecode))
 
+//ETAPE 5
+//mettre le traducteur sur un epage HTML pour récupérer les inputs à traduire
+//fonction event pour les submits
 
+
+console.log(valeur)
+
+function getLatin() {
+    var input = ""
+    var latinFinal = ""
+    inputLatin = document.getElementById("latin").value
+    latinFinal = encode(inputLatin)
+    console.log(latinFinal)
+    return latinFinal
+}
+
+//var latinTranslation = encode(input)
+
+function getMorse() {
+    var input = ""
+    input = document.getElementById("morse").value
+    return input
+}
 
 
 //un joli code qui ne sert à rien
