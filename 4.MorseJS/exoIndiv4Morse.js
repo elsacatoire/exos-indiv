@@ -111,46 +111,44 @@ function getMorseCharacterList(texteMorse) {
 //test
 console.log(getMorseCharacterList("... --- ..."))
 
-//fonction 
+//fonction traduit une lettre
 function translateMorseCharacter(morseCharacter) {
     return morseToLatin[morseCharacter]
 }
+//test
 console.log(translateMorseCharacter("..."))
 
+//fonction qui décode un texte
 function decode(textMorse) {
     var arrMorse = getMorseCharacterList(textMorse)
     var arrFinalMorse = []
-
     for (let index = 0; index < arrMorse.length; index++) {
         arrFinalMorse.push(translateMorseCharacter(arrMorse[index]))
     }
     let resultMorse = arrFinalMorse.join("")
-    return resultMorse.toLocaleLowerCase()
+    let resultMorseLower = resultMorse.toLocaleLowerCase()
+    return resultMorseLower
 }
 console.log(decode(morseToDecode))
 
 //ETAPE 5
-//mettre le traducteur sur un epage HTML pour récupérer les inputs à traduire
-//fonction event pour les submits
-
-
-console.log(valeur)
-
+//c'est l'usager qui donne le texte à traduire sur un page HTML
+//Une fonction pour les entrées en latin, une pour les entrées en morse
 function getLatin() {
-    var input = ""
-    var latinFinal = ""
-    inputLatin = document.getElementById("latin").value
-    latinFinal = encode(inputLatin)
+    var inputL = document.getElementById("latin")
+    var valeurL = inputL.value
+    latinFinal = encode(valeurL)
     console.log(latinFinal)
-    return latinFinal
+    alert(latinFinal)
 }
 
 //var latinTranslation = encode(input)
-
 function getMorse() {
-    var input = ""
-    input = document.getElementById("morse").value
-    return input
+    var inputM = document.getElementById("morse")
+    var valeurM = inputM.value
+    morseFinal = decode(valeurM)
+    console.log(morseFinal)
+    alert(morseFinal)
 }
 
 
