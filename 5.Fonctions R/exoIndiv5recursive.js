@@ -1,5 +1,4 @@
 //exo individuel 5 
-
 const arrayInt = [1, 3, 6]
 
 //fonction qui additionne les élèment d'une array
@@ -13,19 +12,6 @@ function sum1(array) {
 console.log(sum1(arrayInt))
 
 //fonction récursive qui aditionne les élèments d'une liste
-const listeTest = [1, 9, 2, 8]
-function sum2(arr) {
-    let sum22 = 0
-    let out = 0
-    for (let i = 0; i < arr.length; i++) {
-        out = arr.pop()
-        sum22 += (out + sum2(arr))
-    }
-    return sum22
-}
-console.log(sum2(listeTest))
-
-
 function sum2R(array) {
     if (array.length === 0) {
         return 0;  // Cas de base : retourne 0 si le tableau est vide
@@ -33,7 +19,6 @@ function sum2R(array) {
         return array[0] + sum2R(array.slice(1));  // Récursion : ajoute le premier élément du tableau à la somme du reste du tableau
     }
 }
-
 console.log(sum2R(arrayInt))
 
 
@@ -50,8 +35,6 @@ console.log(factorial(4))
 
 //fibonacci en ???
 function fibonacci(x) {
-
-
     if (x === 0) {
         return []
     }
@@ -71,6 +54,19 @@ function fibonacci(x) {
 
 }
 console.log(fibonacci(10))
+
+//sum en boucle et récursivité (prermier essai mais non efficace)
+/* const listeTest = [1, 9, 2, 8]
+function sum2(arr) {
+    let sum22 = 0
+    let out = 0
+    for (let i = 0; i < arr.length; i++) {
+        out = arr.pop()
+        sum22 += (out + sum2(arr))
+    }
+    return sum22
+}
+console.log(sum2(listeTest)) */
 
 //méthode 2 en récursive
 /* let x = 10
