@@ -25,6 +25,18 @@ function sum2(arr) {
 }
 console.log(sum2(listeTest))
 
+
+function sum2R(array) {
+    if (array.length === 0) {
+        return 0;  // Cas de base : retourne 0 si le tableau est vide
+    } else {
+        return array[0] + sum2R(array.slice(1));  // Récursion : ajoute le premier élément du tableau à la somme du reste du tableau
+    }
+}
+
+console.log(sum2R(arrayInt))
+
+
 //fonction récursive qui sort les factoriels
 function factorial(x) {
     if ((x === 0) || (x === 1)) {
@@ -38,6 +50,8 @@ console.log(factorial(4))
 
 //fibonacci en ???
 function fibonacci(x) {
+
+
     if (x === 0) {
         return []
     }
@@ -59,8 +73,9 @@ function fibonacci(x) {
 console.log(fibonacci(10))
 
 //méthode 2 en récursive
-let x = 10
+/* let x = 10
 function fibonacci2(x) {
+    console.trace()
     if (x < 2) {
         return x
     }
@@ -69,6 +84,6 @@ function fibonacci2(x) {
 for (let i = 0; i < 10; i++) {
     console.log(fibonacci2(i))
 }
-
+ */
 
 
