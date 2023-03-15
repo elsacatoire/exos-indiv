@@ -148,9 +148,15 @@ function getMorse() {
     var valeurM = inputM.value
     morseFinal = decode(valeurM)
     console.log(morseFinal)
-    alert(morseFinal)
+
+    setMessage(morseFinal)
+    //alert(morseFinal)
 }
 
+function setMessage(message) {
+    var element = document.getElementById("MorseEntry");
+    element.innerHTML = message;
+}
 
 //un joli code qui ne sert à rien
 //function translateLatinCharacter(Lettre) {
