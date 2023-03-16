@@ -55,9 +55,18 @@ console.log(isPalindrome(isPalindromeTrue))
 console.log(isPalindrome(isPalindromeFalse))
 
 //Etape 3
-function getNextPalindromes() {
+function getNextPalindromes(x) {
     // Pour todays date, lire les dates suivantes, push dans une array à chaque fois que c'est un palindrome et s'arrete qd array.length ===x
-    date1 = Date()
-    console.log(date1)
+    let date1 = new Date()
+    const day = date1.getDate().toString().padStart(2, '0')
+    const month = date1.getMonth().toString().padStart(2, '0')
+    const year = date1.getFullYear()
+    let dDate = day + "/" + month + "/" + year
+    console.log(dDate)
+    var tomorrow = new Date();
+    tomorrow.setDate(date1.getDate() + 1);
+    console.log(tomorrow)
+    //idée : boucler pour que tomorow change de +1 à chaque fois, tout en le testant pour que si = palindrome alors push dans une array
+    // continuer jusqu'à ce que arrayPalindrome = x
 }
 getNextPalindromes()
