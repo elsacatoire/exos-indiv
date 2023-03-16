@@ -56,17 +56,27 @@ console.log(isPalindrome(isPalindromeFalse))
 
 //Etape 3
 function getNextPalindromes(x) {
-    // Pour todays date, lire les dates suivantes, push dans une array à chaque fois que c'est un palindrome et s'arrete qd array.length ===x
-    let date1 = new Date()
-    const day = date1.getDate().toString().padStart(2, '0')
-    const month = date1.getMonth().toString().padStart(2, '0')
-    const year = date1.getFullYear()
-    let dDate = day + "/" + month + "/" + year
-    console.log(dDate)
-    var tomorrow = new Date();
-    tomorrow.setDate(date1.getDate() + 1);
-    console.log(tomorrow)
-    //idée : boucler pour que tomorow change de +1 à chaque fois, tout en le testant pour que si = palindrome alors push dans une array
-    // continuer jusqu'à ce que arrayPalindrome = x
+    // Depuis la date du jour, Boucler pour tester si palindrome, si OUI : push dans une array qui stock les x palindromes
+    //modifier la valeur du jour à +1 avant la fin de la boucle et boucler jusqu'à ce que array.length ===x
+    let palindromes = []
+    let tomorrow = new Date();
+    let tomorrowDay = tomorrow.getDate().toString().padStart(2, '0')
+    let tomorrowMonth = tomorrow.getMonth().toString().padStart(2, '0')
+    let tomorrowYear = tomorrow.getFullYear()
+    let tomorrowString = (tomorrowDay + "/" + tomorrowMonth + "/" + tomorrowYear).toString()
+    console.log(tomorrowString)
+    while (palindromes.length != x) {
+        if (isPalindrome(tomorrowString)) {
+            palindromes.push(tomorrowString)
+        }
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        tomorrowDay = tomorrow.getDate().toString().padStart(2, '0')
+        tomorrowMonth = tomorrow.getMonth().toString().padStart(2, '0')
+        tomorrowYear = tomorrow.getFullYear()
+        tomorrowString = tomorrowDay + "/" + tomorrowMonth + "/" + tomorrowYear
+    }
+    return palindromes
 }
-getNextPalindromes()
+console.log(getNextPalindromes(10))
+
+
