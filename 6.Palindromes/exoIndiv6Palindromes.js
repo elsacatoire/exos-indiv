@@ -1,12 +1,15 @@
 //EXO 6 - Plaindromes - Elsa
 
-//Étape 1
+//variables des test
 const dateStringValid = "29/11/2001"
 const dateStringPalindrome = "10/02/2001"
 const dateStringInvalid = "30/02/2020"
 const isPalindromeTrue = "11/02/2011"
 const isPalindromeFalse = "03/04/2001"
+const isPalindromeStringTrue = "A man, a plan, a canal. Panama"
 
+//Étape 1 : Vérifier que la date est au format valide
+//une foncton pour être sûr que c'est bien le bon nombre de jour en fonction du mois
 function maxDaysInMonth(monthNumber, dayNumber) {
     if (monthNumber == 1 || monthNumber == 3 || monthNumber == 5 || monthNumber == 7 || monthNumber == 8 || monthNumber == 10 || monthNumber == 12) {
         return dayNumber <= 31
@@ -18,6 +21,7 @@ function maxDaysInMonth(monthNumber, dayNumber) {
     }
 }
 
+//Une fonction pour vérifier que la date est valable (appelle la fonction prévèdente pour le mois)
 function isValidDate(dateString) {
     //if (typeof dateString === "string") {
     const arrayDate = dateString.split("/")
@@ -35,12 +39,8 @@ function isValidDate(dateString) {
     }
 }
 
-/* console.log(isValidDate(dateStringValid))
-console.log(isValidDate(dateStringPalindrome))
-console.log(isValidDate(dateStringInvalid))
-console.log(isValidDate("31/11/2072")) */
-
 //Étape 2
+//tester si une date au format string est un palindrome
 function isPalindrome(dateString) {
     if ((dateString[0] == dateString[9]) &&
         (dateString[1] == dateString[8]) &&
@@ -51,8 +51,16 @@ function isPalindrome(dateString) {
         return false
     }
 }
-console.log(isPalindrome(isPalindromeTrue))
-console.log(isPalindrome(isPalindromeFalse))
+
+//test pour l'instant ressort toujours true
+/* function isPalindrome2(dateString) {
+    dateStringNumbers = dateString.replaceAll("/", "")
+    console.log(dateStringNumbers)
+    reverseDateStringNumbers = dateStringNumbers.split('').reverse().join('')
+    console.log(reverseDateStringNumbers)
+    return dateStringNumbers === reverseDateStringNumbers
+} */
+//console.log(isPalindrome2(isPalindromeFalse))
 
 //Etape 3
 function getNextPalindromes(x) {
@@ -80,3 +88,26 @@ function getNextPalindromes(x) {
 console.log(getNextPalindromes(10))
 
 
+//Etape 4
+function isPalindromeString(string) {
+    //créer une varibale qui stock le paramètre en miniscule et sans espace
+    var lowString = string.toLowerCase().replaceAll(' ', '').replaceAll('.', '').replaceAll(',', '')
+    //créer une variable qui stock l'inverse de la string
+    var reverseString = lowString.split('').reverse().join('')
+    //vérifier si les deux
+    return lowString === reverseString
+}
+console.log(isPalindromeString(isPalindromeStringTrue))
+
+function isDatePalindrome(date) {
+    if (!isValidDate(date)) {
+        console.log("this is not a valid date : dd/mm/yyyy")
+        return false
+    }
+    if (!isPalindrome(date)) {
+        console.log("pas un palindrome)")
+        return false
+    }
+    return true
+}
+//console.log(isDatePalindrome(isPalindromeTrue))
