@@ -42,9 +42,9 @@ def did_win(candies_left):
     :return:
     """
     if candies_left == 0:
-        print("Congrats ! You win !")
+        return True
     else:
-        print(f"There is still {candies_left} candies in the box")
+        return False
 
 
 def player(x):
@@ -63,14 +63,24 @@ def game_play():
     plays the game calling all the different functions
     :return:
     """
-    print("let's play!")
-
     global candy_box
+    print("let's play!")
+    print(f"there is {candy_box} in the candy box")
     player(1)
+    print(f"there is {candy_box} left in the candy box")
     player(2)
+    print(f"there is {candy_box} left in the candy box")
     while not did_win(candy_box):
         player(1)
+        print(f"there is {candy_box} left in the candy box")
+        if did_win(candy_box):
+            print("player 1 won the game !")
+            break
         player(2) #il faut modifier pr éviter d'appeler did win trop
+        print(f"there is {candy_box} left in the candy box")
+        if did_win(candy_box):
+            print("player 2 won!")
+            break
 
 
 
