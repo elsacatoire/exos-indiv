@@ -47,15 +47,19 @@ def did_win(candies_left):
         return False
 
 
-def player(x):
+def play(who):
     """
     execute the player x gameplay
     :param x: player number
     :return:
     """
-    given_quantity = ask_quantity(x)
+    given_quantity = ask_quantity(who)
     remove_candies(given_quantity)
     # did_win(candy_box)
+
+
+def winner(who):
+    print(f"player {who} won the game !")
 
 
 def game_play():
@@ -66,20 +70,20 @@ def game_play():
     global candy_box
     print("let's play!")
     print(f"there is {candy_box} in the candy box")
-    player(1)
+    play(1)
     print(f"there is {candy_box} left in the candy box")
-    player(2)
+    play(2)
     print(f"there is {candy_box} left in the candy box")
     while not did_win(candy_box):
-        player(1)
+        play(1)
         print(f"there is {candy_box} left in the candy box")
         if did_win(candy_box):
-            print("player 1 won the game !")
+            winner(1)
             break
-        player(2)
+        play(2)
         print(f"there is {candy_box} left in the candy box")
         if did_win(candy_box):
-            print("player 2 won!")
+            winner(2)
             break
 
 
