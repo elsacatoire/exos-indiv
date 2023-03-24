@@ -32,7 +32,7 @@ def ask_quantity(x):
         print("number has to be between 1 and 6")
         player_quantity = int(input("Hi ! How many candy do you take ?"))
     print(f"Player {1} got {player_quantity} candies")
-    return int(player_quantity)
+    return player_quantity
 
 
 def did_win(candies_left):
@@ -50,7 +50,7 @@ def did_win(candies_left):
 def play(who):
     """
     execute the player x gameplay
-    :param x: player number
+    :param who: player number
     :return:
     """
     given_quantity = ask_quantity(who)
@@ -61,6 +61,14 @@ def play(who):
 def winner(who):
     print(f"player {who} won the game !")
 
+def ask_number_of_players():
+    """
+
+    :return: number of players
+    """
+    number_players = int(input("How may players ?"))
+    return number_players
+
 
 def game_play():
     """
@@ -69,6 +77,8 @@ def game_play():
     """
     global candy_box
     print("let's play!")
+    player_numbers = ask_number_of_players()
+    print(player_numbers)
     print(f"there is {candy_box} in the candy box")
     play(1)
     print(f"there is {candy_box} left in the candy box")
