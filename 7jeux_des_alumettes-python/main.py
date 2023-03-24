@@ -1,5 +1,5 @@
 """
-Exercise 7 : le Jeu des allumettes
+Exercise 7 : Candies' game
 Elsa Catoire - 24.03.2023
 """
 
@@ -55,7 +55,7 @@ def player(x):
     """
     given_quantity = ask_quantity(x)
     remove_candies(given_quantity)
-    #did_win(candy_box)
+    # did_win(candy_box)
 
 
 def game_play():
@@ -76,22 +76,18 @@ def game_play():
         if did_win(candy_box):
             print("player 1 won the game !")
             break
-        player(2) #il faut modifier pr éviter d'appeler did win trop
+        player(2)
         print(f"there is {candy_box} left in the candy box")
         if did_win(candy_box):
             print("player 2 won!")
             break
 
 
-
-
-
 # Press the green button in the gutter to run the script.
+
+
 if __name__ == '__main__':
-    #given_quantity = ask_quantity()
+    # given_quantity = ask_quantity()
     game_play()
-
-
-
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
