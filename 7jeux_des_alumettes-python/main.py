@@ -55,11 +55,11 @@ def play(who):
     """
     given_quantity = ask_quantity(who)
     remove_candies(given_quantity)
-    # did_win(candy_box)
 
 
 def winner(who):
     print(f"player {who} won the game !")
+
 
 def ask_number_of_players():
     """
@@ -79,22 +79,13 @@ def game_play():
     print("let's play!")
     player_numbers = ask_number_of_players()
     print(player_numbers)
-    print(f"there is {candy_box} in the candy box")
-    play(1)
-    print(f"there is {candy_box} left in the candy box")
-    play(2)
-    print(f"there is {candy_box} left in the candy box")
     while not did_win(candy_box):
-        play(1)
-        print(f"there is {candy_box} left in the candy box")
-        if did_win(candy_box):
-            winner(1)
-            break
-        play(2)
-        print(f"there is {candy_box} left in the candy box")
-        if did_win(candy_box):
-            winner(2)
-            break
+        for i in range(1, player_numbers+1):
+            print(f"there is {candy_box} in the candy box")
+            play(i)
+            if did_win(candy_box):
+                break
+    winner(i)
 
 
 # Press the green button in the gutter to run the script.
