@@ -28,7 +28,7 @@ def ask_quantity(x):
     :return:
     """
     player_quantity = int(input(f"Hi Player {x}! How many candy do you take ?"))
-    while player_quantity > 6:
+    while not player_quantity in range(1, 7):
         print("number has to be between 1 and 6")
         player_quantity = int(input("Hi ! How many candy do you take ?"))
     print(f"Player {1} got {player_quantity} candies")
