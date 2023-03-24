@@ -5,7 +5,7 @@ Elsa Catoire - 24.03.2023
 
 # Press Maj+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-candy_box = 50
+candy_box = 20
 
 
 def remove_candies(candy_nb):
@@ -19,7 +19,7 @@ def remove_candies(candy_nb):
     return candy_box
 
 
-def ask_quantity():
+def ask_quantity(x):
     """
     ask one player a quantity to remove from the box
     quantity has to be between 1 and 6
@@ -27,11 +27,11 @@ def ask_quantity():
 
     :return:
     """
-    player_quantity = int(input("Hi ! How many candy do you take ?"))
+    player_quantity = int(input(f"Hi Player {x}! How many candy do you take ?"))
     while player_quantity > 6:
         print("number has to be between 1 and 6")
         player_quantity = int(input("Hi ! How many candy do you take ?"))
-    print(f"you got {player_quantity} candies")
+    print(f"Player {1} got {player_quantity} candies")
     return int(player_quantity)
 
 
@@ -41,10 +41,21 @@ def did_win(candies_left):
     :param candies_left:
     :return:
     """
-    if candies_left == 1:
+    if candies_left == 0:
         print("Congrats ! You win !")
     else:
-        print("There is still more than one candy in the box. Play again !")
+        print(f"There is still {candies_left} candies in the box")
+
+
+def player(x):
+    """
+    execute the player x gameplay
+    :param x: player number
+    :return:
+    """
+    given_quantity = ask_quantity(x)
+    remove_candies(given_quantity)
+    #did_win(candy_box)
 
 
 def game_play():
@@ -52,13 +63,25 @@ def game_play():
     plays the game calling all the different functions
     :return:
     """
+    print("let's play!")
+
+    global candy_box
+    player(1)
+    player(2)
+    while not did_win(candy_box):
+        player(1)
+        player(2) #il faut modifier pr éviter d'appeler did win trop
+
+
+
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    given_quantity = ask_quantity()
-    print(f"there is {remove_candies(given_quantity)} left in the box")
-    did_win(candy_box)
+    #given_quantity = ask_quantity()
+    game_play()
+
+
 
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
