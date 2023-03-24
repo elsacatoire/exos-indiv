@@ -27,9 +27,7 @@ function factorial(x) {
     if ((x === 0) || (x === 1)) {
         return 1;
     }
-    else {
-        return (x * factorial(x - 1));
-    }
+    return (x * factorial(x - 1));
 }
 console.log(factorial(4))
 
@@ -79,7 +77,18 @@ function fibonacci2(x) {
 }
 for (let i = 0; i < 10; i++) {
     console.log(fibonacci2(i))
+} */
+
+
+//correction Fibo
+function fibo(n) {
+    if (n < 2) {
+        return n;
+    }
+    return fibo(n - 1) + fibo(n - 2);
 }
- */
+console.log(fibo(4))
+
+
 
 

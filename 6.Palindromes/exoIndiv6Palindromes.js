@@ -53,13 +53,12 @@ function isPalindrome(dateString) {
 }
 
 //test pour l'instant ressort toujours true
-/* function isPalindrome2(dateString) {
+function isPalindrome2(dateString) {
     dateStringNumbers = dateString.replaceAll("/", "")
-    console.log(dateStringNumbers)
     reverseDateStringNumbers = dateStringNumbers.split('').reverse().join('')
     console.log(reverseDateStringNumbers)
     return dateStringNumbers === reverseDateStringNumbers
-} */
+}
 //console.log(isPalindrome2(isPalindromeFalse))
 
 //Etape 3
@@ -68,20 +67,14 @@ function getNextPalindromes(x) {
     //modifier la valeur du jour à +1 avant la fin de la boucle et boucler jusqu'à ce que array.length ===x
     let palindromes = []
     let tomorrow = new Date();
-    let tomorrowDay = tomorrow.getDate().toString().padStart(2, '0')
-    let tomorrowMonth = tomorrow.getMonth().toString().padStart(2, '0')
-    let tomorrowYear = tomorrow.getFullYear()
-    let tomorrowString = (tomorrowDay + "/" + tomorrowMonth + "/" + tomorrowYear).toString()
+    let tomorrowString = tomorrow.toLocaleDateString('fr')
     console.log(tomorrowString)
     while (palindromes.length != x) {
         if (isPalindrome(tomorrowString)) {
             palindromes.push(tomorrowString)
         }
         tomorrow.setDate(tomorrow.getDate() + 1);
-        tomorrowDay = tomorrow.getDate().toString().padStart(2, '0')
-        tomorrowMonth = tomorrow.getMonth().toString().padStart(2, '0')
-        tomorrowYear = tomorrow.getFullYear()
-        tomorrowString = tomorrowDay + "/" + tomorrowMonth + "/" + tomorrowYear
+        tomorrowString = tomorrow.toLocaleDateString('fr')
     }
     return palindromes
 }
@@ -100,12 +93,12 @@ function isPalindromeString(string) {
 console.log(isPalindromeString(isPalindromeStringTrue))
 
 function isDatePalindrome(date) {
+    //on sort faux si pas valide
     if (!isValidDate(date)) {
-        console.log("this is not a valid date : dd/mm/yyyy")
+        console.log("unvalid date")
         return false
     }
     if (!isPalindrome(date)) {
-        console.log("pas un palindrome)")
         return false
     }
     return true
