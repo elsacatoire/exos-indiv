@@ -35,24 +35,30 @@ def ask_quantity():
     return int(player_quantity)
 
 
-
-def print_hi(name):
+def did_win(candies_left):
     """
-
-    :param name: fffffffffffff
+    check if the payer didWin thanks to his last move
+    :param candies_left:
     :return:
     """
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-    print(f'ppppppppppi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+    if candies_left == 1:
+        print("Congrats ! You win !")
+    else:
+        print("There is still more than one candy in the box. Play again !")
 
+
+def game_play():
+    """
+    plays the game calling all the different functions
+    :return:
+    """
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
     given_quantity = ask_quantity()
     print(f"there is {remove_candies(given_quantity)} left in the box")
+    did_win(candy_box)
 
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
