@@ -1,38 +1,27 @@
 //EXO 6 - Plaindromes - Elsa
 
-//variables des test
-const dateStringValid = "29/11/2001"
-const dateStringPalindrome = "10/02/2001"
-const dateStringInvalid = "30/02/2020"
-const isPalindromeTrue = "11/02/2011"
-const isPalindromeFalse = "03/04/2001"
-const isPalindromeStringTrue = "A man, a plan, a canal. Panama"
-
 //Étape 1 : Vérifier que la date est au format valide
-//une foncton pour être sûr que c'est bien le bon nombre de jour en fonction du mois
+//une foncton pour être sûr que le nombre max de jour selon le mois est respectée
 function maxDaysInMonth(monthNumber, dayNumber) {
-    if (monthNumber == 1 || monthNumber == 3 || monthNumber == 5 || monthNumber == 7 || monthNumber == 8 || monthNumber == 10 || monthNumber == 12) {
-        return dayNumber <= 31
-    }
     if (monthNumber === 2) {
         return dayNumber <= 28
-    } else {
+    }
+    if (monthNumber == 2 || monthNumber == 4 || monthNumber == 6 || monthNumber == 9 || monthNumber == 11) {
         return dayNumber <= 30
+    } else {
+        return dayNumber <= 31
     }
 }
 
-//Une fonction pour vérifier que la date est valable (appelle la fonction prévèdente pour le mois)
+//Une fonction pour vérifier que la date est valable, appelle la fonction précèdente pour le nb de jour max/mois
 function isValidDate(dateString) {
-    //if (typeof dateString === "string") {
     const arrayDate = dateString.split("/")
-    let day = parseInt(arrayDate[0], 10);
-    let month = parseInt(arrayDate[1], 10);
-    let year = parseInt(arrayDate[2], 10);
-    /*     console.log(day)
-        console.log(month)
-        console.log(year)
-        console.log(maxDaysInMonth(month, day)) */
-    if ((day > 0 && day <= 31) && (maxDaysInMonth(month, day)) && (year > 999 && year < 9999)) {
+    let dayInt = parseInt(arrayDate[0], 10);
+    let monthInt = parseInt(arrayDate[1], 10);
+    let yearInt = parseInt(arrayDate[2], 10);
+    if ((dayInt > 0 && dayInt <= 31) &&
+        (maxDaysInMonth(monthInt, dayInt)) &&
+        (yearInt > 999 && yearInt < 9999)) {
         return true
     } else {
         return false
@@ -40,7 +29,7 @@ function isValidDate(dateString) {
 }
 
 //Étape 2
-//tester si une date au format string est un palindrome
+//méthode à la mano si une date au format string est un palindrome
 function isPalindrome(dateString) {
     if ((dateString[0] == dateString[9]) &&
         (dateString[1] == dateString[8]) &&
@@ -52,23 +41,19 @@ function isPalindrome(dateString) {
     }
 }
 
-//test pour l'instant ressort toujours true
+//Autre façon de tester les plaindromes des formats dates, comme pour strings
 function isPalindrome2(dateString) {
     dateStringNumbers = dateString.replaceAll("/", "")
     reverseDateStringNumbers = dateStringNumbers.split('').reverse().join('')
-    console.log(reverseDateStringNumbers)
     return dateStringNumbers === reverseDateStringNumbers
 }
-//console.log(isPalindrome2(isPalindromeFalse))
-
-//Etape 3
+//Etape 3 - récuperer x palindromes
 function getNextPalindromes(x) {
     // Depuis la date du jour, Boucler pour tester si palindrome, si OUI : push dans une array qui stock les x palindromes
     //modifier la valeur du jour à +1 avant la fin de la boucle et boucler jusqu'à ce que array.length ===x
     let palindromes = []
     let tomorrow = new Date();
     let tomorrowString = tomorrow.toLocaleDateString('fr')
-    console.log(tomorrowString)
     while (palindromes.length != x) {
         if (isPalindrome(tomorrowString)) {
             palindromes.push(tomorrowString)
@@ -78,8 +63,6 @@ function getNextPalindromes(x) {
     }
     return palindromes
 }
-console.log(getNextPalindromes(10))
-
 
 //Etape 4
 function isPalindromeString(string) {
@@ -87,10 +70,9 @@ function isPalindromeString(string) {
     var lowString = string.toLowerCase().replaceAll(' ', '').replaceAll('.', '').replaceAll(',', '')
     //créer une variable qui stock l'inverse de la string
     var reverseString = lowString.split('').reverse().join('')
-    //vérifier si les deux
+    //vérifier si les deux sont égales
     return lowString === reverseString
 }
-console.log(isPalindromeString(isPalindromeStringTrue))
 
 function isDatePalindrome(date) {
     //on sort faux si pas valide
@@ -103,4 +85,48 @@ function isDatePalindrome(date) {
     }
     return true
 }
-//console.log(isDatePalindrome(isPalindromeTrue))
+
+function testAll() {
+    const dateStringValid = "29/11/2001"
+    const dateStringInvalid = "30/02/2020"
+    const isDatePalindromeTrue = "11/02/2011"
+    const isDatePalindromeFalse = "03/04/2001"
+    const isPalindromeStringTrue = "A man, a plan, a canal. Panama"
+    const isPlaindromeStrinFalse = "Je ne suis pas un palindrome"
+    //Test Etape 1 - date valide
+    console.log("should return True :")
+    console.log(isValidDate(dateStringValid))
+    console.log("should return False :")
+    console.log(isValidDate(dateStringInvalid));
+
+    //Test Etape 2 méthode mano
+    console.log("should return True :")
+    console.log(isPalindrome(isDatePalindromeTrue));
+    console.log("should return False :")
+    console.log(isPalindrome(isDatePalindromeFalse));
+
+    //Test Etape 2 méthode propre ?
+    console.log("should return True :")
+    console.log(isPalindrome2(isDatePalindromeTrue));
+    console.log("should return False :")
+    console.log(isPalindrome2(isDatePalindromeFalse));
+
+    //Test Etape 3 récupérer x palindromes
+    console.log("should return x dates that are plaindromes :")
+    console.log(getNextPalindromes(10));
+
+    //Test Etape 4-1 : String est un plaindrome ?
+    console.log("should return True :")
+    console.log(isPalindromeString(isPalindromeStringTrue));
+    console.log("should return False :")
+    console.log(isPalindromeString(isPlaindromeStrinFalse));
+
+    //Test 4-2 : Date is palindrome, avec test validité
+    console.log("should return True :")
+    console.log(isDatePalindrome(isDatePalindromeTrue));
+    console.log("should return False :")
+    console.log(isDatePalindrome(isDatePalindromeFalse));
+    console.log("should return unvalid date :")
+    console.log(isDatePalindrome(dateStringInvalid));
+}
+testAll()
