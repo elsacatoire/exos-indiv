@@ -6,6 +6,7 @@ Elsa Catoire - 24.03.2023
 # Press Maj+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 candy_box = 20
+player_number = 1
 
 
 def remove_candies(candy_nb):
@@ -26,11 +27,16 @@ def ask_quantity(x):
     :param: x : quantity of candy to withdraw
     :return: a number, quan
     """
-    player_quantity_str = input("Hi ! How many candy do you take ?")
-    player_quantity_int = int(player_quantity_str)
-    if player_quantity_str not in ["1", "2", "3", "4", "5", "6"]:
+    global player_number
+    player_quantity_str = input(f"Hi Player {player_number} ! How many candy do you take ?")
+    while player_quantity_str not in ["1", "2", "3", "4", "5", "6"]:
         print("number has to be between 1 and 6")
-    ask_quantity(x)
+        player_quantity_str = input(f"Hi Player {player_number} ! How many candy do you take ?")
+    player_quantity_int = int(player_quantity_str)
+    while player_quantity_int > candy_box:
+        print("not enough candies left")
+        player_quantity_str = input(f"Hi Player {player_number} ! How many candy do you take ?")
+        player_quantity_int = int(player_quantity_str)
     return player_quantity_int
 
 
@@ -40,10 +46,13 @@ def did_win(candies_left):
     :param candies_left:
     :return:
     """
+
     if candies_left == 0:
         return True
-    else:
+    elif candies_left < 0:
         return False
+    else:
+        return None
 
 
 def play(who):
@@ -75,16 +84,25 @@ def game_play():
     :return:
     """
     global candy_box
+    global player_number
     print("let's play!")
     player_numbers = ask_number_of_players()
     print(player_numbers)
+    players = list(range(1, player_numbers + 1))
     while not did_win(candy_box):
-        for i in range(1, player_numbers+1):
+        for i in players:
             print(f"there is {candy_box} in the candy box")
+            player_number = i
             play(i)
-            if did_win(candy_box):
+            result = did_win(candy_box)
+            if result == True:
+                winner(i)
                 break
-    winner(i)
+            if result == False:
+                print(f"player {i} lost the game")
+                players.remove(i)
+
+
 
 
 # Press the green button in the gutter to run the script.
