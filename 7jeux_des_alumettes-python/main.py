@@ -49,10 +49,8 @@ def did_win(candies_left):
 
     if candies_left == 0:
         return True
-    elif candies_left < 0:
-        return False
     else:
-        return None
+        return False
 
 
 def play(who):
@@ -95,12 +93,9 @@ def game_play():
             player_number = i
             play(i)
             result = did_win(candy_box)
-            if result == True:
+            if result:
                 winner(i)
                 break
-            if result == False:
-                print(f"player {i} lost the game")
-                players.remove(i)
 
 
 
