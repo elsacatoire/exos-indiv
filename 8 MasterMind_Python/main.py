@@ -1,29 +1,38 @@
+def winning_combination():
+    right_combination = ["red", "green"]
+    return right_combination
+
 
 def ask_combination():
     """
     ask the player to enter a combination in order to guess the right combination
     :return: the player_guesser combination
     """
-
-    player_combination_str = input("guess the combination")
-    player_combination_list = player_combination_str.split(", ")
-    print(type(player_combination_list))
+    right_combination_list = winning_combination()
+    # size_combination = len(right_combination_list)
+    player_combination_list = []
+    for i in range(len(right_combination_list)):
+        ask_a_color = input(f"color{i+1}")
+        while check_right_colors(ask_a_color) == (not True):
+            ask_a_color = input(f"color{i + 1}")
+            player_combination_list.append(ask_a_color)
     print(player_combination_list)
     return player_combination_list
 
 
-def check_right_colors(player_combination):
+def check_right_colors(player_color):
     """
 
-    :param player_combination: the try oh the player_guesser, got it with ask_combination()
+    :param player_color: the try oh the player_guesser, got it with ask_combination()
     :return: True when the check is a succes
     """
     colors_allowed = ["blue", "red", "yellow", "green"]
-    while player_combination not in colors_allowed:
+    if player_color not in colors_allowed:
         print(f"colors should be{colors_allowed}")
-        player_combination = ask_combination()
-    print("colors are authorized")
-    return True
+        return False
+    else:
+        print("colors are authorized")
+        return True
 
 
 def did_win(player_combination):
@@ -32,8 +41,8 @@ def did_win(player_combination):
     :param player_combination: last move played by the player_guesser
     :return: True or False
     """
-    right_combination = ["red", "green"]
-    if player_combination == right_combination:
+
+    if player_combination == winning_combination():
         print("congrats, you won !")
         return True
     else:
