@@ -1,6 +1,19 @@
 def winning_combination():
+    """
+    set the winning combination
+    :return:
+    """
     right_combination = ["red", "green"]
     return right_combination
+
+
+def colors_allowed():
+    """
+    set the colors allowed in the game
+    :return: the list of colores that are allowed
+    """
+    game_colors = ["blue", "red", "yellow", "green"]
+    return game_colors
 
 
 def ask_combination():
@@ -9,13 +22,12 @@ def ask_combination():
     :return: the player_guesser combination
     """
     right_combination_list = winning_combination()
-    # size_combination = len(right_combination_list)
     player_combination_list = []
     for i in range(len(right_combination_list)):
         ask_a_color = input(f"color{i+1}")
         while check_right_colors(ask_a_color) == (not True):
             ask_a_color = input(f"color{i + 1}")
-            player_combination_list.append(ask_a_color)
+        player_combination_list.append(ask_a_color)
     print(player_combination_list)
     return player_combination_list
 
@@ -26,9 +38,9 @@ def check_right_colors(player_color):
     :param player_color: the try oh the player_guesser, got it with ask_combination()
     :return: True when the check is a succes
     """
-    colors_allowed = ["blue", "red", "yellow", "green"]
-    if player_color not in colors_allowed:
-        print(f"colors should be{colors_allowed}")
+    possible_colors = colors_allowed()
+    if player_color not in possible_colors:
+        print(f"colors should be{possible_colors}")
         return False
     else:
         print("colors are authorized")
@@ -56,9 +68,10 @@ def game_play():
     :return: True when finished
     """
     player_combination = ask_combination()
-    check_right_colors(player_combination)
-    did_win(player_combination)
-    return True
+    if did_win(player_combination):
+        return True
+    else:
+        print("guess again")
 
 
 def its_a_win():
