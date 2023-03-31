@@ -10,6 +10,7 @@ player_number = 1
 
 
 def remove_candies(candy_nb):
+    """"""
     """
     removes the user's given number of candies from the total amount
     :param candy_nb: candies' quantity that the player chooses to remove
@@ -42,25 +43,27 @@ def ask_quantity(x):
 
 def did_win(candies_left):
     """
-    check if the payer didWin thanks to his last move
-    :param candies_left:
-    :return:
+    check if the payer did win
+    :param candies_left: the current amount of the candy box
+    :return: True if the player win, False if the player lost
     """
 
     if candies_left == 0:
         return True
+    elif candies_left > 0:
+        return None
     else:
         return False
 
 
 def play(who):
     """
-    execute the player x gameplay
+    execute the round of the player "who"
     :param who: player number
     :return:
     """
     given_quantity = ask_quantity(who)
-    remove_candies(given_quantity)
+    return remove_candies(given_quantity)
 
 
 def winner(who):
@@ -96,11 +99,6 @@ def game_play():
             if result:
                 winner(i)
                 break
-
-
-
-
-# Press the green button in the gutter to run the script.
 
 
 if __name__ == '__main__':
