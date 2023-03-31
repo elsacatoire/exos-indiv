@@ -1,3 +1,4 @@
+# set of the game rules
 def winning_combination():
     """
     set the winning combination
@@ -16,7 +17,8 @@ def colors_allowed():
     return game_colors
 
 
-def ask_combination():
+# useful function to play the game
+def guesser_combination():
     """
     ask the player to enter a combination in order to guess the right combination
     :return: the player_guesser combination
@@ -46,6 +48,44 @@ def check_right_colors(player_color):
         return True
 
 
+def check_guess_a_color(guesser_combination_list):
+    win_combination_list = winning_combination()
+    check_list = []
+    misplaced = 0
+    right_place = 0
+    for i in range(len(guesser_combination_list)):
+        if guesser_combination_list[i] == win_combination_list[i]:
+            right_place += 1
+    else:
+        print(guesser_combination_list[i])
+        if guesser_combination_list[i] in win_combination_list:
+            misplaced += 1
+    check_list.append(right_place)
+    check_list.append(misplaced)
+    return check_list
+
+
+# this is the game !
+def game_play():
+    """
+    plays the game
+    :return: True when finished
+    """
+    attempts = 3
+    for i in range(attempts):
+        print(f"round {i+1}")
+        player_combination = guesser_combination()
+        print(check_guess_a_color(player_combination))
+        if did_win(player_combination):
+            print("win")
+            break
+    if did_win(player_combination):
+        its_a_win(attempts)
+    else:
+        its_a_lost(attempts)
+
+
+# part of the code where the winning/loosing condition and consequences are set
 def did_win(player_combination):
     """
     check if the player won
@@ -58,24 +98,6 @@ def did_win(player_combination):
     else:
         print("try again")
         return False
-
-
-def game_play():
-    """
-    plays the game
-    :return: True when finished
-    """
-    attempts = 3
-    for i in range(attempts):
-        print(f"round {i+1}")
-        player_combination = ask_combination()
-        if did_win(player_combination):
-            print("win")
-            break
-    if did_win(player_combination):
-        its_a_win()
-    else:
-        its_a_lost(attempts)
 
 
 def its_a_win(attempts):
