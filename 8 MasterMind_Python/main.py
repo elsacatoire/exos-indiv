@@ -43,7 +43,6 @@ def check_right_colors(player_color):
         print(f"colors should be{possible_colors}")
         return False
     else:
-        print("colors are authorized")
         return True
 
 
@@ -55,7 +54,6 @@ def did_win(player_combination):
     """
 
     if player_combination == winning_combination():
-        print("congrats, you won !")
         return True
     else:
         print("try again")
@@ -74,29 +72,31 @@ def game_play():
         if did_win(player_combination):
             print("win")
             break
-    print(f"you loose, over the attempts allowed {attempts}")
+    if did_win(player_combination):
+        its_a_win()
+    else:
+        its_a_lost(attempts)
 
 
-def its_a_win():
+def its_a_win(attempts):
     """
     set what the game does when the player win
     :return:
     """
-    print("congrats, you won in X attempts")
+    print(f"congrats, you won in {attempts} attempts")
 
 
-def its_a_lost():
+def its_a_lost(attempts):
     """
     set what the game does when the player loose
     :return:
     """
-    print("do you want ti play again ?")
+    print(f"you loose, over the attempts allowed {attempts}")
 
 
 # We run things here :)
 if __name__ == '__main__':
-    if game_play():
-        its_a_win()
+    game_play()
 
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
