@@ -18,8 +18,13 @@ def colors_allowed():
 
 
 def rounds_number():
+    """
+    defines the number of rounds in witch the player can guess the combination
+    :return:
+    """
     rounds = 12
     return rounds
+
 
 # useful function to play the game
 def guesser_combination():
@@ -53,6 +58,11 @@ def check_right_colors(player_color):
 
 
 def check_guess_a_color(guesser_combination_list):
+    """
+    check the combination tried by the user
+    :param guesser_combination_list: combination to try. Comes from guesser_combination()
+    :return:
+    """
     win_combination_list = winning_combination()
     check_list = []
     misplaced = 0
@@ -60,9 +70,9 @@ def check_guess_a_color(guesser_combination_list):
     for i in range(len(guesser_combination_list)):
         if guesser_combination_list[i] == win_combination_list[i]:
             right_place += 1
-    else:
-        if guesser_combination_list[i] in win_combination_list:
-            misplaced += 1
+        else:
+            if guesser_combination_list[i] in win_combination_list:
+                misplaced += 1
     check_list.append(right_place)
     check_list.append(misplaced)
     return check_list
@@ -85,10 +95,10 @@ def game_play():
         if did_win(player_combination):
             print("win")
             break
-    if did_win(player_combination):
-        its_a_win(attempts)
-    else:
-        its_a_lost(attempts)
+        if did_win(player_combination):
+            its_a_win(attempts)
+        else:
+            its_a_lost(attempts)
 
 
 # part of the code where the winning/loosing condition and consequences are set
@@ -102,7 +112,6 @@ def did_win(player_combination):
     if player_combination == winning_combination():
         return True
     else:
-        print("try again")
         return False
 
 
@@ -127,4 +136,3 @@ if __name__ == '__main__':
     game_play()
 
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
