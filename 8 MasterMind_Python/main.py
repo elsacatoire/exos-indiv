@@ -1,10 +1,17 @@
 # set of the game rules
 def winning_combination():
     """
-    set the winning combination
-    :return:
+    set the winning combination. Uses a random pick for each color in the authorized colors
+    :return:the winning combination as a list
     """
-    right_combination = ["blue", "blue", "yellow", "green"]
+    import random
+    right_combination = []
+    list_to_pick_in = colors_allowed()
+    for i in range(4):
+        color_buffer = random.choice(list_to_pick_in)
+        right_combination.append(color_buffer)
+    right_combination2 = ["blue", "blue", "yellow", "green"]
+    print(right_combination)
     return right_combination
 
 
@@ -32,9 +39,8 @@ def guesser_combination():
     ask the player to enter a combination in order to guess the right combination
     :return: the player_guesser combination
     """
-    right_combination_list = winning_combination()
     player_combination_list = []
-    for i in range(len(right_combination_list)):
+    for i in range(4):
         ask_a_color = input(f"              color {i+1} ? ")
         while check_right_colors(ask_a_color) == (not True):
             ask_a_color = input(f"              color {i + 1}? ")
@@ -57,21 +63,21 @@ def check_right_colors(player_color):
         return True
 
 
-def check_guess_a_color(guesser_combination_list):
+def check_guess_a_color(guesser_combination_list, victory_condition):
     """
     check the combination tried by the user
+    :param victory_condition:
     :param guesser_combination_list: combination to try. Comes from guesser_combination()
     :return:
     """
-    win_combination_list = winning_combination()
     check_list = []
     misplaced = 0
     right_place = 0
     for i in range(len(guesser_combination_list)):
-        if guesser_combination_list[i] == win_combination_list[i]:
+        if guesser_combination_list[i] == victory_condition[i]:
             right_place += 1
         else:
-            if guesser_combination_list[i] in win_combination_list:
+            if guesser_combination_list[i] in victory_condition:
                 misplaced += 1
     check_list.append(right_place)
     check_list.append(misplaced)
@@ -85,28 +91,32 @@ def game_play():
     :return: True when finished
     """
     attempts = 3
+    combination_to_guess = winning_combination()
+    print(combination_to_guess)
     print("==>Welcome to Elsa's MasterMind !!! Here are the rules :")
     print(f"you've got {rounds_number()} chances to find the secret combination")
     print(f"possible colors are : {colors_allowed()}")
     for i in range(attempts):
         print(f"        round {i+1} : ")
         player_combination = guesser_combination()
-        print(f"try again : {check_guess_a_color(player_combination)}")
-        if did_win(player_combination):
-            print("win")
+        print(f"outcome : {check_guess_a_color(player_combination, combination_to_guess)}")
+        if did_win(player_combination, combination_to_guess):
+            its_a_win(attempts)
             break
-    its_a_lost(attempts)
+        if i == (attempts - 1):
+            its_a_lost(attempts)
 
 
 # part of the code where the winning/loosing condition and consequences are set
-def did_win(player_combination):
+def did_win(player_combination, victory_condition):
     """
     check if the player won
+    :param victory_condition: right combination
     :param player_combination: last move played by the player_guesser
     :return: True or False
     """
 
-    if player_combination == winning_combination():
+    if player_combination == victory_condition:
         return True
     else:
         return False
