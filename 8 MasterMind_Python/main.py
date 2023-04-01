@@ -95,10 +95,7 @@ def game_play():
         if did_win(player_combination):
             print("win")
             break
-        if did_win(player_combination):
-            its_a_win(attempts)
-        else:
-            its_a_lost(attempts)
+    its_a_lost(attempts)
 
 
 # part of the code where the winning/loosing condition and consequences are set
@@ -134,5 +131,3 @@ def its_a_lost(attempts):
 # We run things here :)
 if __name__ == '__main__':
     game_play()
-
-
