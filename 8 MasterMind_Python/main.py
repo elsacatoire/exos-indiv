@@ -27,7 +27,7 @@ def colors_allowed():
 def rounds_number():
     """
     defines the number of rounds in witch the player can guess the combination
-    :return:
+    :return: an int representing the rounds allowed
     """
     rounds = 12
     return rounds
@@ -51,7 +51,7 @@ def guesser_combination():
 
 def check_right_colors(player_color):
     """
-
+    check if the color entered by the player is authorized
     :param player_color: the try oh the player_guesser, got it with ask_combination()
     :return: True when the check is a success
     """
@@ -65,10 +65,11 @@ def check_right_colors(player_color):
 
 def check_guess_a_color(guesser_combination_list, victory_condition):
     """
-    check the combination tried by the user
-    :param victory_condition:
+    check if the combination tried by the user
+    :param victory_condition: the winning order
     :param guesser_combination_list: combination to try. Comes from guesser_combination()
-    :return:
+    :return: a list with txo int, the first is the nb of right placed pawns
+    the second the misplaced pawns
     """
     check_list = []
     misplaced = 0
@@ -89,7 +90,7 @@ def check_guess_a_color(guesser_combination_list, victory_condition):
 def game_play():
     """
     plays the game
-    :return: True when finished
+    :return: nothing for now
     """
     attempts = 3
     combination_to_guess = winning_combination()
@@ -126,7 +127,7 @@ def did_win(player_combination, victory_condition):
 def its_a_win(attempts):
     """
     set what the game does when the player win
-    :return:
+    :return: nothing for now
     """
     print(f"congrats, you won in {attempts} rounds")
 
@@ -134,7 +135,7 @@ def its_a_win(attempts):
 def its_a_lost(attempts):
     """
     set what the game does when the player loose
-    :return:
+    :return: nothing for now
     """
     print(f"you loose, too many rounds : {attempts}")
 
