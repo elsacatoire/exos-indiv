@@ -81,6 +81,7 @@ def check_guess_a_color(guesser_combination_list, victory_condition):
                 misplaced += 1
     check_list.append(right_place)
     check_list.append(misplaced)
+    print(f"{check_list} : {right_place} in the right place and {misplaced} misplaced")
     return check_list
 
 
@@ -99,7 +100,7 @@ def game_play():
     for i in range(attempts):
         print(f"        round {i+1} : ")
         player_combination = guesser_combination()
-        print(f"outcome : {check_guess_a_color(player_combination, combination_to_guess)}")
+        check_guess_a_color(player_combination, combination_to_guess)
         if did_win(player_combination, combination_to_guess):
             its_a_win(attempts)
             break
