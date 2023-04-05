@@ -11,7 +11,6 @@ def winning_combination():
         color_buffer = random.choice(list_to_pick_in)
         right_combination.append(color_buffer)
     right_combination2 = ["blue", "blue", "yellow", "green"]
-    print(right_combination)
     return right_combination
 
 
@@ -94,7 +93,7 @@ def game_play():
     """
     attempts = 3
     combination_to_guess = winning_combination()
-    print(combination_to_guess)
+    #print(combination_to_guess)
     print("==>Welcome to Elsa's MasterMind !!! Here are the rules :")
     print(f"you've got {rounds_number()} chances to find the secret combination")
     print(f"possible colors are : {colors_allowed()}")
@@ -103,7 +102,7 @@ def game_play():
         player_combination = guesser_combination()
         check_guess_a_color(player_combination, combination_to_guess)
         if did_win(player_combination, combination_to_guess):
-            its_a_win(attempts)
+            its_a_win(i+1)
             break
         if i == (attempts - 1):
             its_a_lost(attempts)
