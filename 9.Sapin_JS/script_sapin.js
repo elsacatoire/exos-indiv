@@ -10,7 +10,7 @@ function draw_top_star(int) {
 
 //the function that will calculate and draw the spaces before the characters
 function spaces(int) {
-    spaces_nb_list = [5, 4, 3, 3, 2, 1] //math is not my thing, I made a list to help me
+    spaces_nb_list = [5, 4, 3, 3, 2, 1, 2, 1] //math is not my thing, I made a list to help me
 
     for (let i = 0; i <= int; i++) {//first loop to create the main list and the buffer list for each line
         space_draw_list = []
@@ -26,7 +26,7 @@ function spaces(int) {
 //the function that draws the tree
 function sapin(int) {
     draw_top_star(int)
-    list = [1, 3, 5, 5, 7, 9] //an array to help me
+    list = [1, 3, 5, 5, 7, 9, 7, 9] //an array to help me
     for (let i = 0; i <= int; i++) {//1st loop for each line (branch) of the tree
         branch = []
         space = spaces(i).join("")//to set the right indentation
@@ -40,4 +40,4 @@ function sapin(int) {
     }
 }
 
-sapin(5)
+sapin(7)
