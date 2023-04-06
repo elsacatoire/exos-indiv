@@ -24,6 +24,15 @@ function spaces(int) {
 }
 
 
+function foot(int) {
+    draw_foot = []
+    for (let i = 0; i < 6; i++) {
+        draw_foot.push(" ")
+    }
+    draw_foot.push("##")
+
+    return draw_foot.join("")
+}
 
 //the function that draws the tree
 function sapin(int) {
@@ -39,6 +48,13 @@ function sapin(int) {
         }
         branch.push("\\")
         console.log(branch.join(""))
+    }
+    console.log(foot(int))
+    if (int >= 5) {
+        console.log(foot(int))
+    }
+    if (int >= 7) {
+        console.log(foot(int))
     }
 }
 
