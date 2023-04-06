@@ -13,7 +13,6 @@ function draw_top_star(int) {
 //the function that will calculate and draw the spaces before the characters
 function spaces(int) {
     spaces_nb_list = [5, 4, 3, 3, 2, 1, 2, 1] //math is not my thing, I made a list to help me
-
     for (let i = 0; i <= int; i++) {//first loop to create the main list and the buffer list for each line
         space_draw_list = []
         space_i_list = []
@@ -34,14 +33,25 @@ function foot() {
     return foot_piece.join("")
 }
 
+function get_random_character(charList) {
+    let randomIndex = Math.floor(Math.random() * charList.length); // Génère un index aléatoire
+    return charList[randomIndex]; // Renvoie le caractère correspondant à l'index aléatoire
+}
+
 function draw_line(int) {
+    random_list = ["*", "+", "*", "o"]
     for (let i = 0; i <= int; i++) {//1st loop for each line (branch) of the tree
         branch = []
         space = spaces(i).join("")//to set the right indentation
         branch.push(space)
         branch.push('/')
         for (let j = 0; j < list[i]; j++) {//to draw the branch
-            branch.push("*")
+            let random_decoration = get_random_character(random_list);
+            if (branch[branch.length - 1] !== "*") {
+                branch.push("*")
+            } else {
+                branch.push(random_decoration)
+            }
         }
         branch.push("\\")
         console.log(branch.join(""))
@@ -66,6 +76,5 @@ function sapin(int) {
     draw_foot(int)
 
 }
-
 
 sapin(7)
