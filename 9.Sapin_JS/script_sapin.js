@@ -5,7 +5,7 @@ function draw_top_star() {
         draw_star.push(" ")
     }
     draw_star.push("+") //adding the star :)
-    console.log(draw_star.join("")); // ça déconcatène sévère
+    console.log(draw_star.join("")); // het out of the list effect
 }
 
 //the function that will calculate and draw the spaces before the characters
@@ -22,6 +22,8 @@ function spaces(int) {
     }
     return space_draw_list
 }
+
+
 
 //the function that draws the tree
 function sapin(int) {
