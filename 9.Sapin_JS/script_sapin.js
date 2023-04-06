@@ -1,3 +1,5 @@
+//let's draw a chrismas tree !
+
 //the fucntion that will draw the star on top of the tree
 function draw_top_star(int) {
     /*     draw_star = []
@@ -33,6 +35,18 @@ function foot() {
     return foot_piece.join("")
 }
 
+//foot as a place relative to his length
+function draw_foot(int) {
+    console.log(foot(int))
+    if (int >= 5) {
+        console.log(foot(int))
+    }
+    if (int >= 7) {
+        console.log(foot(int))
+    }
+}
+
+
 function get_random_character(charList) {
     let randomIndex = Math.floor(Math.random() * charList.length); // Génère un index aléatoire
     return charList[randomIndex]; // Renvoie le caractère correspondant à l'index aléatoire
@@ -45,7 +59,7 @@ function draw_line(int) {
         space = spaces(i).join("")//to set the right indentation
         branch.push(space)
         branch.push('/')
-        for (let j = 0; j < list[i]; j++) {//to draw the branch
+        for (let j = 0; j < list[i] - 1; j++) {//to draw the branch
             let random_decoration = get_random_character(random_list);
             if (branch[branch.length - 1] !== "*") {
                 branch.push("*")
@@ -53,19 +67,14 @@ function draw_line(int) {
                 branch.push(random_decoration)
             }
         }
-        branch.push("\\")
+        branch.push("*\\")
         console.log(branch.join(""))
     }
 }
 
-function draw_foot(int) {
-    console.log(foot(int))
-    if (int >= 5) {
-        console.log(foot(int))
-    }
-    if (int >= 7) {
-        console.log(foot(int))
-    }
+function ask_tree_length() {
+    let how_tall = prompt("how tall will be your tree ?", "3 to 7 for a magnificient tree")
+    return how_tall
 }
 
 //the function that draws the tree
@@ -74,7 +83,6 @@ function sapin(int) {
     draw_top_star(5)
     draw_line(int)
     draw_foot(int)
-
 }
 
-sapin(7)
+sapin(ask_tree_length())
