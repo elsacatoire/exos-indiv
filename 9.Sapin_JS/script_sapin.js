@@ -11,16 +11,9 @@ function draw_top_star(tree_size_int) {
 
 
 //the function that will calculate and draw the spaces before the characters
-function spaces(int) {
+function spaces(tree_size_int) {
     spaces_nb_list = [5, 4, 3, 3, 2, 1, 2, 1] //math is not my thing, I made a list to help me
-    for (let i = 0; i <= int; i++) {//first loop to create the main list and the buffer list for each line
-        space_draw_list = []
-        space_i_list = []
-        //for (let j = 0; j < spaces_nb_list[i]; j++) {//2nd loop to implemant the buffer list that set spaces for one line
-        space_i_list.push(" ".repeat(spaces_nb_list[i]))
-        // }
-        space_draw_list.push(space_i_list.join(""))//end of 1st loop push the buffer list into the main as a string
-    }
+    space_draw_list = " ".repeat(spaces_nb_list[tree_size_int])
     return space_draw_list
 }
 
@@ -34,13 +27,13 @@ function foot() {
 }
 
 //foot as a place relative to his length
-function draw_foot(int) {
-    console.log(foot(int))
-    if (int >= 5) {
-        console.log(foot(int))
+function draw_foot(tree_size_int) {
+    console.log(foot(tree_size_int))
+    if (tree_size_int >= 5) {
+        console.log(foot(tree_size_int))
     }
-    if (int >= 7) {
-        console.log(foot(int))
+    if (tree_size_int >= 7) {
+        console.log(foot(tree_size_int))
     }
 }
 
@@ -50,11 +43,11 @@ function get_random_character(charList) {
     return charList[randomIndex]; // Renvoie le caractère correspondant à l'index aléatoire
 }
 
-function draw_line(int) {
+function draw_line(tree_size_int) {
     random_list = ["*", "+", "*", "o"]
-    for (let i = 0; i <= int; i++) {//1st loop for each line (branch) of the tree
+    for (let i = 0; i <= tree_size_int; i++) {//1st loop for each line (branch) of the tree
         branch = []
-        space = spaces(i).join("")//to set the right indentation
+        space = spaces(i)//to set the right indentation
         branch.push(space)
         branch.push('/')
         for (let j = 0; j < list[i] - 1; j++) {//to draw the branch
@@ -78,11 +71,11 @@ function ask_tree_length() {
 
 
 //the function that draws the tree
-function sapin(int) {
+function sapin(tree_size_int) {
     list = [1, 3, 5, 5, 7, 9, 7, 9] //an array to help me
     draw_top_star(5)
-    draw_line(int)
-    draw_foot(int)
+    draw_line(tree_size_int)
+    draw_foot(tree_size_int)
 }
 
 sapin(7)
