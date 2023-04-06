@@ -38,6 +38,7 @@ function get_random_character(charList) {
 }
 
 function draw_lines(tree_size_int) {
+    list = [1, 3, 5, 5, 7, 9, 7, 9, 11, 9, 11, 13] //an array to help me
     random_list = ["*", "+", "*", "o"]
     for (let i = 0; i <= tree_size_int; i++) {  //1st loop for each line of the tree
         branch = [blank_line(i), '/']
@@ -59,14 +60,29 @@ function ask_tree_length() {
     return how_tall
 }
 
-
 //the function that draws the tree
 function sapin(tree_size_int) {
-    list = [1, 3, 5, 5, 7, 9, 7, 9] //an array to help me
     draw_top_star(5)
     draw_lines(tree_size_int)
     draw_trunk(tree_size_int)
 }
 
-sapin(5)
+
+function maxWidth(num, result = 4) {
+    if (num == 1) {
+        return result + 1
+    }
+    if (num % 3 == 0) {
+        num--
+        result -= 2
+        return maxWidth(num, result)
+    } else {
+        num--
+        result += 2
+        return maxWidth(num, result)
+    }
+}
+
+
+sapin(7)
 sapin(ask_tree_length())
