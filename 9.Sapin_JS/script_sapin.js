@@ -1,11 +1,13 @@
 //the fucntion that will draw the star on top of the tree
-function draw_top_star() {
-    draw_star = []
-    for (let i = 0; i <= 5; i++) { //loop to store the right amout of spaces before the Star
-        draw_star.push(" ")
-    }
-    draw_star.push("+") //adding the star :)
-    console.log(draw_star.join("")); // het out of the list effect
+function draw_top_star(int) {
+    /*     draw_star = []
+        for (let i = 0; i <= 5; i++) { //loop to store the right amout of spaces before the Star
+            draw_star.push(" ")
+        }
+        draw_star.push("+") //adding the star :)
+        console.log(draw_star.join("")); // het out of the list effect */
+
+    console.log(" ".repeat(int + 1) + "+" + " ".repeat(int + 1))
 }
 
 //the function that will calculate and draw the spaces before the characters
@@ -23,21 +25,16 @@ function spaces(int) {
     return space_draw_list
 }
 
-
-function foot(int) {
-    draw_foot = []
+function foot() {
+    foot_piece = []
     for (let i = 0; i < 6; i++) {
-        draw_foot.push(" ")
+        foot_piece.push(" ")
     }
-    draw_foot.push("##")
-
-    return draw_foot.join("")
+    foot_piece.push("##")
+    return foot_piece.join("")
 }
 
-//the function that draws the tree
-function sapin(int) {
-    list = [1, 3, 5, 5, 7, 9, 7, 9] //an array to help me
-    draw_top_star()
+function draw_line(int) {
     for (let i = 0; i <= int; i++) {//1st loop for each line (branch) of the tree
         branch = []
         space = spaces(i).join("")//to set the right indentation
@@ -49,6 +46,9 @@ function sapin(int) {
         branch.push("\\")
         console.log(branch.join(""))
     }
+}
+
+function draw_foot(int) {
     console.log(foot(int))
     if (int >= 5) {
         console.log(foot(int))
@@ -57,5 +57,15 @@ function sapin(int) {
         console.log(foot(int))
     }
 }
+
+//the function that draws the tree
+function sapin(int) {
+    list = [1, 3, 5, 5, 7, 9, 7, 9] //an array to help me
+    draw_top_star(5)
+    draw_line(int)
+    draw_foot(int)
+
+}
+
 
 sapin(7)
