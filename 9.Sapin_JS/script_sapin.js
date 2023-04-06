@@ -1,7 +1,7 @@
 //the fucntion that will draw the star on top of the tree
-function draw_top_star(int) {
+function draw_top_star() {
     draw_star = []
-    for (let i = 0; i <= ((int)); i++) { //loop to store the right amout of spaces before the Star
+    for (let i = 0; i <= 5; i++) { //loop to store the right amout of spaces before the Star
         draw_star.push(" ")
     }
     draw_star.push("+") //adding the star :)
@@ -25,8 +25,8 @@ function spaces(int) {
 
 //the function that draws the tree
 function sapin(int) {
-    draw_top_star(int)
     list = [1, 3, 5, 5, 7, 9, 7, 9] //an array to help me
+    draw_top_star()
     for (let i = 0; i <= int; i++) {//1st loop for each line (branch) of the tree
         branch = []
         space = spaces(i).join("")//to set the right indentation
