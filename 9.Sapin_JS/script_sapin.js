@@ -1,16 +1,14 @@
 //let's draw a chrismas tree !
 
-//the fucntion that will draw the star on top of the tree
-function draw_top_star(int) {
-    /*     draw_star = []
-        for (let i = 0; i <= 5; i++) { //loop to store the right amout of spaces before the Star
-            draw_star.push(" ")
-        }
-        draw_star.push("+") //adding the star :)
-        console.log(draw_star.join("")); // het out of the list effect */
+//--------------------Parts of the tree-----------------------------\\
 
-    console.log(" ".repeat(int + 1) + "+" + " ".repeat(int + 1))
+//the fucntion that will draw the star on top of the tree
+function draw_top_star(tree_size_int) {
+    let draw_star = " ".repeat(tree_size_int + 1)
+    draw_star += "+" //adding the star :)
+    console.log(draw_star); // het out of the list effect
 }
+
 
 //the function that will calculate and draw the spaces before the characters
 function spaces(int) {
@@ -18,9 +16,9 @@ function spaces(int) {
     for (let i = 0; i <= int; i++) {//first loop to create the main list and the buffer list for each line
         space_draw_list = []
         space_i_list = []
-        for (let j = 0; j < spaces_nb_list[i]; j++) {//2nd loop to implemant the buffer list that set spaces for one line
-            space_i_list.push(" ")
-        }
+        //for (let j = 0; j < spaces_nb_list[i]; j++) {//2nd loop to implemant the buffer list that set spaces for one line
+        space_i_list.push(" ".repeat(spaces_nb_list[i]))
+        // }
         space_draw_list.push(space_i_list.join(""))//end of 1st loop push the buffer list into the main as a string
     }
     return space_draw_list
@@ -72,10 +70,12 @@ function draw_line(int) {
     }
 }
 
+
 function ask_tree_length() {
     let how_tall = prompt("how tall will be your tree ?", "3 to 7 for a magnificient tree")
     return how_tall
 }
+
 
 //the function that draws the tree
 function sapin(int) {
@@ -85,4 +85,5 @@ function sapin(int) {
     draw_foot(int)
 }
 
+sapin(7)
 sapin(ask_tree_length())
