@@ -18,12 +18,8 @@ function spaces(tree_size_int) {
 }
 
 function foot() {
-    foot_piece = []
-    for (let i = 0; i < 6; i++) {
-        foot_piece.push(" ")
-    }
-    foot_piece.push("##")
-    return foot_piece.join("")
+    foot_piece = " ".repeat(6) + "#".repeat(2)
+    return foot_piece
 }
 
 //foot as a place relative to his length
@@ -78,5 +74,5 @@ function sapin(tree_size_int) {
     draw_foot(tree_size_int)
 }
 
-sapin(7)
+sapin(5)
 sapin(ask_tree_length())
