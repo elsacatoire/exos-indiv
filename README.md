@@ -1,9 +1,7 @@
-Elsa
-Ada Tech School - Nantes
-Repository of the individual exercisies
+# Elsa @ Ada Tech School - Nantes
+Individual exercisies repository
+One exercise/week  
 
-1 Folder / exercise
-N.Exercise name
-
-One exercise/week
-
+# Repo architecture
+1 Folder / exercise  
+N.Exercise name  
