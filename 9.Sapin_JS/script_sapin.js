@@ -86,4 +86,4 @@ function maxWidth(num, result = 4) {
 }
 
 
-sapin(ask_tree_length())
+sapin(7)
