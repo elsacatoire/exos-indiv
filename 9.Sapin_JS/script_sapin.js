@@ -55,8 +55,10 @@ function draw_lines(tree_size_int) {
     }
 }
 
+
 function ask_tree_length() {
     let how_tall = prompt("how tall will be your tree ?", "3 to 7 for a magnificient tree")
+    //Affiche la variable dans la page HTML
     return how_tall
 }
 
@@ -84,5 +86,4 @@ function maxWidth(num, result = 4) {
 }
 
 
-sapin(7)
 sapin(ask_tree_length())
