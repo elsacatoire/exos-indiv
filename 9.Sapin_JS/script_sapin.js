@@ -1,65 +1,48 @@
 //let's draw a chrismas tree !
 
-//the fucntion that will draw the star on top of the tree
-function draw_top_star(int) {
-    /*     draw_star = []
-        for (let i = 0; i <= 5; i++) { //loop to store the right amout of spaces before the Star
-            draw_star.push(" ")
-        }
-        draw_star.push("+") //adding the star :)
-        console.log(draw_star.join("")); // het out of the list effect */
+//--------------------Parts of the tree-----------------------------\\
 
-    console.log(" ".repeat(int + 1) + "+" + " ".repeat(int + 1))
+//the fucntion that will draw the star on top of the tree
+function draw_top_star(tree_size_int) {
+    let draw_star = " ".repeat(tree_size_int + 1)
+    draw_star += "+" //adding the star :)
+    console.log(draw_star); // het out of the list effect
 }
 
 //the function that will calculate and draw the spaces before the characters
-function spaces(int) {
+function blank_line(tree_size_int) {
     spaces_nb_list = [5, 4, 3, 3, 2, 1, 2, 1] //math is not my thing, I made a list to help me
-    for (let i = 0; i <= int; i++) {//first loop to create the main list and the buffer list for each line
-        space_draw_list = []
-        space_i_list = []
-        for (let j = 0; j < spaces_nb_list[i]; j++) {//2nd loop to implemant the buffer list that set spaces for one line
-            space_i_list.push(" ")
-        }
-        space_draw_list.push(space_i_list.join(""))//end of 1st loop push the buffer list into the main as a string
-    }
-    return space_draw_list
+    let empty_line = " ".repeat(spaces_nb_list[tree_size_int])
+    return empty_line
 }
 
-function foot() {
-    foot_piece = []
-    for (let i = 0; i < 6; i++) {
-        foot_piece.push(" ")
-    }
-    foot_piece.push("##")
-    return foot_piece.join("")
+function trunk() {
+    trunk_line = " ".repeat(6) + "#".repeat(2)
+    return trunk_line
 }
 
-//foot as a place relative to his length
-function draw_foot(int) {
-    console.log(foot(int))
-    if (int >= 5) {
-        console.log(foot(int))
+//foot as a place relative to his heigth
+function draw_trunk(tree_size_int) {
+    console.log(trunk(tree_size_int))
+    if (tree_size_int >= 5) {
+        console.log(trunk(tree_size_int))
     }
-    if (int >= 7) {
-        console.log(foot(int))
+    if (tree_size_int >= 7) {
+        console.log(trunk(tree_size_int))
     }
 }
-
 
 function get_random_character(charList) {
     let randomIndex = Math.floor(Math.random() * charList.length); // Génère un index aléatoire
     return charList[randomIndex]; // Renvoie le caractère correspondant à l'index aléatoire
 }
 
-function draw_line(int) {
+function draw_lines(tree_size_int) {
+    list = [1, 3, 5, 5, 7, 9, 7, 9, 11, 9, 11, 13] //an array to help me
     random_list = ["*", "+", "*", "o"]
-    for (let i = 0; i <= int; i++) {//1st loop for each line (branch) of the tree
-        branch = []
-        space = spaces(i).join("")//to set the right indentation
-        branch.push(space)
-        branch.push('/')
-        for (let j = 0; j < list[i] - 1; j++) {//to draw the branch
+    for (let i = 0; i <= tree_size_int; i++) {  //1st loop for each line of the tree
+        branch = [blank_line(i), '/']
+        for (let j = 0; j < list[i] - 1; j++) { //the inside
             let random_decoration = get_random_character(random_list);
             if (branch[branch.length - 1] !== "*") {
                 branch.push("*")
@@ -72,17 +55,35 @@ function draw_line(int) {
     }
 }
 
+
 function ask_tree_length() {
     let how_tall = prompt("how tall will be your tree ?", "3 to 7 for a magnificient tree")
+    //Affiche la variable dans la page HTML
     return how_tall
 }
 
 //the function that draws the tree
-function sapin(int) {
-    list = [1, 3, 5, 5, 7, 9, 7, 9] //an array to help me
+function sapin(tree_size_int) {
     draw_top_star(5)
-    draw_line(int)
-    draw_foot(int)
+    draw_lines(tree_size_int)
+    draw_trunk(tree_size_int)
 }
 
-sapin(ask_tree_length())
+
+function maxWidth(num, result = 4) {
+    if (num == 1) {
+        return result + 1
+    }
+    if (num % 3 == 0) {
+        num--
+        result -= 2
+        return maxWidth(num, result)
+    } else {
+        num--
+        result += 2
+        return maxWidth(num, result)
+    }
+}
+
+
+sapin(7)
