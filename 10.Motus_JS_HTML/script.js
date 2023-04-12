@@ -27,16 +27,23 @@ function tryWord(word, base) {
         return { wellPlaced: wellPlaced, missplaced: missplaced, notInWord: notInWord }
     }
 }
+
 function guess() {
     let base = 'dictionnaire'
     let word = document.getElementById("word").value
+    /*     if (word.length != base.length) {
+            word = document.getElementById("word").value
+        } */
     let result = tryWord(word, base)
-    document.getElementById("word").value = ''
-    document.getElementById("try").innerText = word
-    document.getElementById("well").innerText = 'Bien placé: ' + result.wellPlaced.join(', ')
-    document.getElementById("miss").innerText = 'Mal placé: ' + result.missplaced.join(', ')
-    document.getElementById("not").innerText = 'Pas dans le mot: ' + result.notInWord.join(', ')
-    if (result.wellPlaced.length === base.length) {
+    if (result === true) {
         document.getElementById("win").innerText = 'Vous avez gagné'
+    } else {
+        document.getElementById("word").value = ''
+        document.getElementById("try").innerText = word
+        document.getElementById("well").innerText = 'Bien placé: ' + result.wellPlaced.join(', ')
+        document.getElementById("miss").innerText = 'Mal placé: ' + result.missplaced.join(', ')
+        document.getElementById("not").innerText = 'Pas dans le mot: ' + result.notInWord.join(', ')
     }
+
+    //result.wellPlaced.length === base.length
 }
