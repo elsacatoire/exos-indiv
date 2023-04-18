@@ -17,7 +17,6 @@ function tryWord(word, base) {
                 missplaced.push(arrayWord[i])
             }
         }
-
         for (const char of arrayWord) {
             if (arrayBase.includes(char) === false) {
                 notInWord.push(char)
