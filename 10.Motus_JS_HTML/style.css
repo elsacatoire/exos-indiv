@@ -1,0 +1,22 @@
+.trys {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: brown;
+}
+
+.btn {
+    text-align: center;
+    height: 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    vertical-align: middle;
+    cursor: pointer;
+    color: blue;
+    background-color: blanchedalmond;
+}
+
+#word {
+    width: 30%;
+    height: 30px;
+}

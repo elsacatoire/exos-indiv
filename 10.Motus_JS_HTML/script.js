@@ -1,19 +1,18 @@
 function tryWord(word, base) {
     // TODO: fix jeu sensible à la casse.
+    let wellPlaced = [];
+    let notInWord = [];
+    let missplaced = [];
     if (word === base) {
         return true
     } else {
-        let wellPlaced = [];
-        let notInWord = [];
-        let missplaced = [];
+        let arrayBase = base.toLowerCase().split('');
+        let arrayWord = word.toLowerCase().split('');
 
-        let arrayBase = base.split('');
-        let arrayWord = word.split('');
-
-        for (let i = 0; i < arrayBase.length - 1; i++) {
+        for (let i = 0; i < arrayBase.length; i++) {
             if (arrayBase[i] === arrayWord[i]) {
                 wellPlaced.push(arrayWord[i]);
-            } else {
+            } else if (arrayBase.includes(arrayWord[i])) {
                 missplaced.push(arrayWord[i])
             }
         }
@@ -26,6 +25,7 @@ function tryWord(word, base) {
         return { wellPlaced: wellPlaced, missplaced: missplaced, notInWord: notInWord }
     }
 }
+
 
 function guess() {
     let base = 'dictionnaire'
