@@ -41,3 +41,9 @@ div {
     border: 0.3em solid black;
     border-color: darkblue;
 }
+
+#win {
+    font-weight: normal;
+    text-align: center;
+    color: blue;
+}

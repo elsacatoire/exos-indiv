@@ -41,16 +41,16 @@ function guess() {
     } else {
         document.getElementById("word").value = ''
         document.getElementById("try").innerText = word
-        document.getElementById("well").innerText = 'Bien placé: ' + result.wellPlaced.join(', ')
-        document.getElementById("miss").innerText = 'Mal placé: ' + result.missplaced.join(', ')
-        document.getElementById("not").innerText = 'Pas dans le mot: ' + result.notInWord.join(', ')
+        document.getElementById("well").innerText =
+            'Bien placé: ' + result.wellPlaced.join(', ')
+        document.getElementById("miss").innerText =
+            'Mal placé: ' + result.missplaced.join(', ')
+        document.getElementById("not").innerText =
+            'Pas dans le mot: ' + result.notInWord.join(', ')
     }
 
     //result.wellPlaced.length === base.length
 }
-var mot = "bonjour"
-console.log(mot.bold());
-
 
 function mot_syntax(motTest, motOk) {
     finalString = []
@@ -69,30 +69,46 @@ function mot_syntax(motTest, motOk) {
 //var test = document.getElementById("joli").innerHTML = "<b> bonjour </b>"
 function mot_color(motTest, motOk, x) {
     finalString = []
-    var codeMot = `<div><span id='joli${x}'></span></div>`
+    //var codeMot = `<div><span id='joli${x}'></span></div>`
     for (let i = 0; i < motOk.length; i++) {
         if (motOk[i] == motTest[i]) {
-            document.getElementById("joli").innerHTML += "<span class='good'>" + motTest[i] + "</span>"
+            document.getElementById("joli").innerHTML +=
+                "<span class='good'>" + motTest[i] + "</span>"
         } else if (motOk.includes(motTest[i])) {
-            document.getElementById("joli").innerHTML += "<span class='almost'>" + motTest[i] + "</span>"
+            document.getElementById("joli").innerHTML +=
+                "<span class='almost'>" + motTest[i] + "</span>"
         } else {
-            document.getElementById("joli").innerHTML += "<span class='bad'>" + motTest[i] + "</span>"
+            document.getElementById("joli").innerHTML +=
+                "<span class='bad'>" + motTest[i] + "</span>"
         }
+    }
+    document.getElementById("joli").innerHTML +=
+        "<br>"
+}
+
+function gamePlay() {
+    let motBase = "hello"
+    let motTest = document.getElementById("word").value
+    if (motTest.length != motBase.length) {
+        attemptsCounter()
+    } else if (motTest != motBase) {
+        mot_color(motTest, motBase)
+        attemptsCounter()
+    } else {
+        win(motBase)
+        attemptsCounter()
     }
 }
 
-function gamePlay(motTest, motOk) {
-    var counter = 0
-    while (!didWin())
-        mot_color(motTest, motOk)
-
-
+function win(motTestOk) {
+    console.log("vous avez gagné");
+    document.getElementById("win").innerHTML = motTestOk
+        + " était le bon mot"
 }
 
-function didWin() {
-    console.log("win");
+function attemptsCounter() {
+    let attempts = document.getElementById("attempts").innerHTML
+    attempts++
+    document.getElementById("attempts").innerHTML =
+        attempts
 }
-
-
-mot_color("holla", "hello")
-//mot_syntax("hello", "hello")
