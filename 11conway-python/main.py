@@ -42,7 +42,24 @@ def describe_string(string_to_describe):
     return new_string
 
 
+def suite_conway(char, n):
+    """
+    give the conway suite
+
+    :param char: any starting point for the suite
+    :param n: number of iteration of the suite
+    :return: a list of the n first element of the conway suite
+    """
+    suite_str = char
+    suite_list = [char]
+    for i in range(n):
+        suite_str = describe_string(suite_str)
+        suite_list.append(suite_str)
+    return suite_list
+
+
 if __name__ == '__main__':
     print(cut_string("aabbca"), "/expected : aa bb c a")
-    print(describe_string("aabbca"), "/expected 2a2b1c1a")
+    print(describe_string("aabbca"), "/expected : 2a2b1c1a")
+    print(suite_conway("a", 3), "expected : 'a', '1a', '111a', '311a'")
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
