@@ -1,7 +1,5 @@
 //let's draw a chrismas tree !
-
 //--------------------Parts of the tree-----------------------------\\
-
 //the fucntion that will draw the star on top of the tree
 function draw_top_star(tree_size_int) {
     let draw_star = " ".repeat(tree_size_int + 1)
@@ -55,7 +53,6 @@ function draw_lines(tree_size_int) {
     }
 }
 
-
 function ask_tree_length() {
     let how_tall = prompt("how tall will be your tree ?", "3 to 7 for a magnificient tree")
     //Affiche la variable dans la page HTML
@@ -68,7 +65,6 @@ function sapin(tree_size_int) {
     draw_lines(tree_size_int)
     draw_trunk(tree_size_int)
 }
-
 
 function maxWidth(num, result = 4) {
     if (num == 1) {
@@ -84,6 +80,5 @@ function maxWidth(num, result = 4) {
         return maxWidth(num, result)
     }
 }
-
 
 sapin(7)
