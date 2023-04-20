@@ -2,7 +2,7 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 1.2em;
     font-weight: bold;
-    color: brown;
+    color: rgb(49, 48, 48);
 }
 
 .btn {
@@ -14,6 +14,7 @@
     cursor: pointer;
     color: blue;
     background-color: blanchedalmond;
+    border-radius: 30%;
 }
 
 #word {

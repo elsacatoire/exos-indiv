@@ -3,7 +3,10 @@ function tryWord(word, base) {
     let wellPlaced = [];
     let notInWord = [];
     let missplaced = [];
-    if (word === base) {
+    console.log(base);
+    base.toLowerCase()
+    console.log(base);
+    if (word == base) {
         return true
     } else {
         let arrayBase = base.toLowerCase().split('');
