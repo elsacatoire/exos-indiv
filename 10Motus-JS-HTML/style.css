@@ -21,3 +21,23 @@
     width: 30%;
     height: 30px;
 }
+
+.good {
+    background-color: rgb(0, 255, 17);
+    font-size: 1.6em;
+}
+
+.almost {
+    background-color: rgb(255, 230, 0);
+    font-size: 1.6em;
+}
+
+.bad {
+    background-color: rgb(255, 0, 0);
+    font-size: 1.6em;
+}
+
+div {
+    border: 0.3em solid black;
+    border-color: darkblue;
+}

@@ -24,7 +24,6 @@ function tryWord(word, base) {
                 notInWord.push(char)
             }
         }
-
         return { wellPlaced: wellPlaced, missplaced: missplaced, notInWord: notInWord }
     }
 }
@@ -49,3 +48,51 @@ function guess() {
 
     //result.wellPlaced.length === base.length
 }
+var mot = "bonjour"
+console.log(mot.bold());
+
+
+function mot_syntax(motTest, motOk) {
+    finalString = []
+    for (let i = 0; i < motOk.length; i++) {
+        if (motOk[i] == motTest[i]) {
+            finalString.push(motTest[i].bold())
+        } else if (motOk.includes(motTest[i])) {
+            finalString.push(motTest[i])
+        } else {
+            finalString.push(motTest[i].strike())
+        }
+        document.getElementById("joli").innerHTML = finalString.join("")
+    }
+}
+
+//var test = document.getElementById("joli").innerHTML = "<b> bonjour </b>"
+function mot_color(motTest, motOk, x) {
+    finalString = []
+    var codeMot = `<div><span id='joli${x}'></span></div>`
+    for (let i = 0; i < motOk.length; i++) {
+        if (motOk[i] == motTest[i]) {
+            document.getElementById("joli").innerHTML += "<span class='good'>" + motTest[i] + "</span>"
+        } else if (motOk.includes(motTest[i])) {
+            document.getElementById("joli").innerHTML += "<span class='almost'>" + motTest[i] + "</span>"
+        } else {
+            document.getElementById("joli").innerHTML += "<span class='bad'>" + motTest[i] + "</span>"
+        }
+    }
+}
+
+function gamePlay(motTest, motOk) {
+    var counter = 0
+    while (!didWin())
+        mot_color(motTest, motOk)
+
+
+}
+
+function didWin() {
+    console.log("win");
+}
+
+
+mot_color("holla", "hello")
+//mot_syntax("hello", "hello")
