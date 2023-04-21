@@ -40,6 +40,10 @@
 div {
     border: 0.3em solid black;
     border-color: darkblue;
+    width: 30%;
+    min-height: 100px;
+    margin: 1em;
+    padding: 0.5em;
 }
 
 #win {

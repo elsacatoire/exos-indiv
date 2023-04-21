@@ -112,3 +112,7 @@ function attemptsCounter() {
     document.getElementById("attempts").innerHTML =
         attempts
 }
+
+
+// donner à l'usager le nombre de lettre du mot
+// lier API pour mot aléatoire
