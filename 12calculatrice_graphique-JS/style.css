@@ -36,8 +36,18 @@ html {
 }
 
 .btn {
-    border-radius: 25%;
-    font-size: 40px;
+    height: 60px;
+    background-color: #fff;
+    border-radius: 3px;
+    border: 1px solid #c4c4c4;
+    background-color: transparent;
+    font-size: 2rem;
+    color: #333;
+    background-image: linear-gradient(to bottom, transparent, transparent 50%, rgba(0, 0, 0, .04));
+}
+
+.btn:hover {
+    background-color: #81adc0;
 }
 
 .number {
