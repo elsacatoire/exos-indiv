@@ -8,24 +8,32 @@
 </head>
 
 <body>
-    <p>entrer un mot de 5 lettres</p>
-    <input id="word" />
-    <button class="btn" onclick="gamePlay()">Ok</button>
-    <p>Resultats :</p>
-    <div>
-        <span id="joli"></span>
+    <header class="main-header">
+        <h1 class="title">Motus</h1>
+        <h2>Tentez votre chance</h2>
+    </header>
 
-        <p class="trys" id="well"></p>
-        <p class="trys" id="miss"></p>
-        <p class="trys" id="not"></p>
-        <p class="trys" id="win"></p>
+    <div class="game-play">
+        <p>Entrez un mot de 5 lettres</p>
+        <input id="word" />
+        <button class="btn" onclick="gamePlay()">Ok</button>
+        <p></p>
+        <div class="words">
+            <span id="joli"></span>
+        </div>
         <p id="win"></p>
+        <div>
+            <p class="trys" id="try">Nombre de tentatives : <span id="attempts">0</span></p>
+        </div>
     </div>
-    <div>
-        <p class="trys" id="try">Nombre de tentatives : <span id="attempts">0</span></p>
-    </div>
-
     <script src="script.js"></script>
+
+    <footer class="main-footer">
+        <div>
+            <h3>Motus, by Elsa</h3>
+        </div>
+
+    </footer>
 </body>
 
 </html>
