@@ -37,6 +37,7 @@ html {
 
 .calc-keys {
     display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .btn {
