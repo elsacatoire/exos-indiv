@@ -1,0 +1,23 @@
+.btn {
+    margin: 1em;
+    padding: 0.7em;
+    border-radius: 25%;
+}
+
+.number {
+    color: rgb(35, 32, 32);
+    font-size: 40px;
+}
+
+.operator {
+    color: blue;
+}
+
+.result {
+    color: brown;
+    font-size: xx-large;
+}
+
+.input {
+    border: 1em solid blanchedalmond;
+}
