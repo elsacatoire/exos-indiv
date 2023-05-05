@@ -35,6 +35,10 @@ html {
     padding-left: 10px;
 }
 
+.calc-keys {
+    display: grid;
+}
+
 .btn {
     height: 60px;
     background-color: #fff;
@@ -50,6 +54,15 @@ html {
     background-color: #81adc0;
 }
 
+.all-clear {
+    background-color: #f0595f;
+    color: #fff;
+}
+
+.all-clear:hover {
+    background-color: #b74a4e;
+}
+
 .number {
     color: rgb(35, 32, 32);
 }
@@ -59,5 +72,10 @@ html {
 }
 
 .result {
-    color: brown;
+    background-color: #2e86c0;
+    color: #fff;
+}
+
+.result:hover {
+    background-color: #236591;
 }
