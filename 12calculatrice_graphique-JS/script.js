@@ -8,71 +8,77 @@ function pressKey(key) {
     }
 }
 
-const one = document.getElementById("1")
+
+
+let one = document.getElementById("1")
 one.addEventListener("click", function () {
     pressKey(one)
 });
+
 const two = document.getElementById("2")
 two.addEventListener("click", function () {
     pressKey(two)
 });
+
 const three = document.getElementById("3")
 three.addEventListener("click", function () {
-    console.log("Le bouton a été cliqué !");
+    pressKey(three)
 });
 const four = document.getElementById("4")
 four.addEventListener("click", function () {
-    console.log("Le bouton a été cliqué !");
+    pressKey(four)
 });
 const five = document.getElementById("5")
 five.addEventListener("click", function () {
-    console.log("Le bouton a été cliqué !");
+    pressKey(five)
 });
 const six = document.getElementById("6")
 six.addEventListener("click", function () {
-    console.log("Le bouton a été cliqué !");
+    pressKey(six)
 });
 const seven = document.getElementById("7")
 seven.addEventListener("click", function () {
-    console.log("Le bouton a été cliqué !");
+    pressKey(seven)
 });
 const eight = document.getElementById("8")
 eight.addEventListener("click", function () {
-    console.log("Le bouton a été cliqué !");
+    pressKey(eight)
 });
 const nine = document.getElementById("9")
 nine.addEventListener("click", function () {
-    console.log("Le bouton a été cliqué !");
+    pressKey(nine)
 });
 const add = document.getElementById("+")
 add.addEventListener("click", function () {
-    console.log("Le bouton a été cliqué !");
+    pressKey(add)
 });
 const take = document.getElementById("-")
 take.addEventListener("click", function () {
-    console.log("Le bouton a été cliqué !");
+    pressKey(take)
 });
 const multiply = document.getElementById("*")
 multiply.addEventListener("click", function () {
-    console.log("Le bouton a été cliqué !");
+    pressKey(multiply)
 });
 const divide = document.getElementById("/")
 divide.addEventListener("click", function () {
-    console.log("Le bouton a été cliqué !");
+    pressKey(divide)
 });
-const equal = document.getElementById("=")
-equal.addEventListener("click", function () {
-    console.log("Le bouton a été cliqué !");
-});
+
 const ac = document.getElementById("AC")
 ac.addEventListener("click", function () {
-    console.log("Le bouton a été cliqué !");
+    pressKey(ac)
 });
 const decimal = document.getElementById(".")
 decimal.addEventListener("click", function () {
-    console.log("Le bouton a été cliqué !");
+    pressKey(decimal)
 });
 const zero = document.getElementById("0")
 zero.addEventListener("click", function () {
-    console.log("Le bouton a été cliqué !");
+    pressKey(zero)
+});
+
+const equal = document.getElementById("=")
+equal.addEventListener("click", function () {
+    pressKey(equal)
 });
