@@ -1,11 +1,20 @@
+function pressKey(key) {
+    let write = document.getElementById("calcul")
+    if (write.value == "0") {
+        write.value = key.value
+    } else {
+        write.value = write.value + key.value
+        console.log(write.value);
+    }
+}
 
 const one = document.getElementById("1")
 one.addEventListener("click", function () {
-    console.log("Le bouton a été cliqué !");
+    pressKey(one)
 });
 const two = document.getElementById("2")
 two.addEventListener("click", function () {
-    console.log("Le bouton a été cliqué !");
+    pressKey(two)
 });
 const three = document.getElementById("3")
 three.addEventListener("click", function () {
