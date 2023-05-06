@@ -1,14 +1,23 @@
 function pressKey(key) {
-    let write = document.getElementById("calcul")
+    let writeCalcul = document.getElementById("calcul")
     if (key == "AC") {
-        return write.value = 0
+        return writeCalcul.value = 0
     }
-    if (write.value == "0") {
-        write.value = key
+    if (key == "=") {
+        return calculIt()
+    }
+    if (writeCalcul.value == "0") {
+        writeCalcul.value = key
     } else {
-        write.value = write.value + key
+        writeCalcul.value = writeCalcul.value + key
     }
-    return write.value
+    return writeCalcul.value
+}
+
+function calculIt() {
+    console.log("we need the result now");
+    let writeResult = document.getElementById("equal")
+    writeResult.value = "result"
 }
 
 function sum(a, b) {
@@ -63,9 +72,9 @@ zero.addEventListener("click", function () {
     pressKey(zero)
 });
 
-const equal = document.getElementById("=")
+/* const equal = document.getElementById("=")
 equal.addEventListener("click", function () {
     pressKey(equal)
-});
+}); */
 
 console.log(document.getElementById("calcul").value);
