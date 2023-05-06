@@ -1,9 +1,13 @@
+// TODO : Fix after equal, set back to new calcul
 function pressKey(key) {
     let calculScreen = document.getElementById("calcul")
+    let resultScreen = document.getElementById("equal")
     if (key == "AC") {
         return calculScreen.value = 0
     }
     if (key == "=") {
+        calculScreen.value = calculScreen.value + key
+        console.log(calculScreen.value.charAt(calculScreen.length - 1));
         return calculIt(calculScreen)
     }
     if (calculScreen.value == "0") {
@@ -17,7 +21,7 @@ function pressKey(key) {
 function calculIt(calcul) {
     toCalulate = calcul.value
     let writeResult = document.getElementById("equal")
-    writeResult.value = eval(toCalulate)
+    writeResult.value = eval(toCalulate.slice(0, -1))
 }
 
 document.addEventListener("click", function (event) {
