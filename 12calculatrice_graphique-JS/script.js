@@ -1,14 +1,18 @@
 // TODO : Fix after equal, set back to new calcul
 function pressKey(key) {
-    let calculScreen = document.getElementById("calcul")
-    let resultScreen = document.getElementById("equal")
-    if (key == "AC") {
-        return calculScreen.value = 0
+    let calculScreen = document.getElementById("calcul");
+    let resultScreen = document.getElementById("equal");
+    if (resultScreen.value != "0") {
+        console.log("move");
+        resultScreen.value = "0"
+        calculScreen.value = "0"
     }
-    if (key == "=") {
-        calculScreen.value = calculScreen.value + key
-        console.log(calculScreen.value.charAt(calculScreen.length - 1));
-        return calculIt(calculScreen)
+    if (key == "AC") {
+        return calculScreen.value = "";
+    } if (key == "=") {
+        calculScreen.value = calculScreen.value + key;
+        console.log(calculScreen.value.charAt(calculScreen.value.length - 1));
+        return calculIt(calculScreen.value);
     }
     if (calculScreen.value == "0") {
         calculScreen.value = key
@@ -19,9 +23,9 @@ function pressKey(key) {
 }
 
 function calculIt(calcul) {
-    toCalulate = calcul.value
+    toCalculate = calcul
     let writeResult = document.getElementById("equal")
-    writeResult.value = eval(toCalulate.slice(0, -1))
+    writeResult.value = eval(toCalculate.slice(0, -1))
 }
 
 document.addEventListener("click", function (event) {
