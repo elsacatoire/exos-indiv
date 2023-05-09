@@ -1,4 +1,6 @@
 
+// TODO : essayer avec  math.evaluate(expr [,scope]).
+
 function pressKey(key) {
     let calculScreen = document.getElementById("calcul");
     let resultScreen = document.getElementById("equal");
@@ -35,3 +37,6 @@ document.addEventListener("click", function (event) {
         pressKey(valueKey)
     }
 });
+
+
+console.log(eval((4 + 4) / (2 * 2)));
