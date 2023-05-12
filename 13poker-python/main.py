@@ -32,14 +32,28 @@ def deal(given_cards):
     :return: modified deck
     """
     global deck
-    hand = random.sample(deck, given_cards)
-    for card in hand:
+    cards = random.sample(deck, given_cards)
+    for card in cards:
         deck.remove(card)
-    return hand
+    return cards
 
 
 Player1 = deal(2)
 Player2 = deal(2)
+
+
+def flop():
+    burned_cards = [deal(1)]
+    flop_cards = deal(3)
+    burned_cards.append(deal(1))
+    flop_cards.append(deal(1))
+    burned_cards.append(deal(1))
+    flop_cards.append(deal(1))
+    return flop_cards
+
+
+cards = flop()
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
@@ -47,6 +61,5 @@ if __name__ == '__main__':
     print(deck)
     print(Player1, Player2)
     print(len(deck))
-
-
-
+    print(flop())
+    print(len(deck))
