@@ -48,6 +48,7 @@ function conwaySuitLog(char, n) {
 }
 
 
+
 // main application
 let result1 = cutString(simpleStr)
 let result2 = cutString(biggerStr)
