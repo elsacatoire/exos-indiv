@@ -7,8 +7,8 @@ class Card:
         self.color = color
         self.value = value
 
-    def __str__(self):
-        return f"{self.value} of {self.color}"
+    def card_name(self):
+        return self.value + " of " + self.color
 
 
 class Deck:
@@ -21,12 +21,16 @@ class Deck:
         Create a standard deck of card, unordered
         :return: the deck
         """
-        color_names = ["Spade", "Club", "Heart", "Diamond"]
-        value_names = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'valet', 'dame', 'roi']
-        for color in color_names:
-            for value in value_names:
-                card = Card(color, value)
-                self.cards.append(card)
+        colors = ["Spade", "Club", "Heart", "Diamond"]
+        values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'valet', 'dame', 'roi', 'Ace']
+        self.cards = []
+        for color in colors:
+            for value in values:
+                self.cards.append(Card(color, value))
+    deck = create_deck()
+
+    for card in deck:
+        print(card.card_name())
 
     def shuffle(self):
         random.shuffle(self.cards)
@@ -41,4 +45,6 @@ class Deck:
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     print("hello")
+    deck = Deck()
+    print(deck.shuffle())
 
