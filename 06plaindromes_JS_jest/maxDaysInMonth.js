@@ -6,9 +6,6 @@ function maxDaysInMonth(month, day) {
         return day <= 30
 
     } else {
-        if (month <= 0 && month > 12) {
-            throw new Error("invalid month");
-        }
         return day <= 31
     }
 }

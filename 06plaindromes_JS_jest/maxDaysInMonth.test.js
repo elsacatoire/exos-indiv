@@ -13,7 +13,3 @@ test('mois de fevrier', () => {
     const result = maxDaysInMonth(2, 29);
     expect(result).toBeFalsy();
 })
-/* test('invalid', () => {
-    const result = maxDaysInMonth(25);
-    expect(result).toThrow('invalid');
-}) */
