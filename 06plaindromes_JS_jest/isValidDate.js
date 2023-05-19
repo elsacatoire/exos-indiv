@@ -7,14 +7,18 @@ function isValidDate(dateToTest) {
         dayInt = parseInt(dateParts[0], 10)
         monthInt = parseInt(dateParts[1], 10)
         yearInt = parseInt(dateParts[2], 10)
-        if (dayInt > 0 && dayInt < 31) {
-            if (maxDaysInMonth(monthInt, dayInt)) {
-                if (yearInt > 999 && yearInt < 9999) {
+        if (monthInt > 0 && monthInt <= 12) {
+            if (dayInt > 0 && dayInt < 31) {
+                if (maxDaysInMonth(monthInt, dayInt)) {
+                    if (yearInt > 999 && yearInt < 9999) {
+                        return true
+                    }
+                    return false
                 }
+                return false
             }
+            return false
         }
-        return true
-    } else {
         return false
     }
 }

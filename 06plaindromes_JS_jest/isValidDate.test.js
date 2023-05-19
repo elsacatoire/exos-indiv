@@ -5,9 +5,9 @@ test('format ok', () => {
     const result = isValidDate('14/03/1989')
     expect(result).toBeTruthy()
 })
-test('format ok', () => {
+test('format ok but not date', () => {
     const result = isValidDate('90/03/1000')
-    expect(result).toBeTruthy()
+    expect(result).toBeFalsy()
 })
 test('format not ok', () => {
     const result = isValidDate('03/1989')
