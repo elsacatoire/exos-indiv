@@ -1,0 +1,1 @@
+const getNextPalindromes = require('./getNextPalindromes')
