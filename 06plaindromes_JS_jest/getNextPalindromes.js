@@ -26,5 +26,5 @@ function getNextPalindromes(x, date = new Date()) {
 //  /   /    \/    \            ICI  :        /    \   \   \
 //    ||  || || ||                              ||  ||  ||
 let nextPalindromes = getNextPalindromes(3)
-console.log(nextPalindromes);
+
 module.exports = getNextPalindromes
