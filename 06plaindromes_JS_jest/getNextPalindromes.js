@@ -4,21 +4,19 @@
 //  /   /    \/    \    fonctions principales /    \   \   \
 //    ||  || || ||                              ||  ||  ||
 
+// importer les fonctions dont on a besoin
 const isPalindrome = require('./isPalindrome')
 
-function addDay(daysToAdd, date) {
-
-}
-
+// fonction
 function getNextPalindromes(x, date = new Date()) {
     let palindromeList = []
-    do {
-        let dateStr = date.toLocaleDateString('fr')
+    while (palindromeList.length < x) {
+        const dateStr = date.toLocaleDateString('fr')
         if (isPalindrome(dateStr)) {
-            palindromeList.push(dateStr)
+            palindromeList.push(dateStr);
         }
-        date.setDate(date.getDate() + 1)
-    } while (palindromeList.length < x);
+        date.setDate(date.getDate() + 1);
+    }
     return palindromeList
 }
 
