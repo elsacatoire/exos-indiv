@@ -24,4 +24,3 @@ function isValidDate(dateToTest) {
 }
 
 module.exports = isValidDate
-console.log(isValidDate('13/23/1989'));
