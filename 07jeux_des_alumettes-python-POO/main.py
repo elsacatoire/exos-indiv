@@ -14,16 +14,16 @@ class MatchBox:
 
     def _get_total_matches(self):
         try:
-            return self.quantity
+            return self._quantity
         except AttributeError:
             print("quantity is not defined")
 
-    def remove_matches(self, quantity_to_remove, player):
-        print(f"{player.name} removes {quantity_to_remove} matches")
-        self.quantity -= quantity_to_remove
+    def remove_matches(self, quantity_to_remove):
+        #print(f"{player.name} removes {quantity_to_remove} matches")
+        self._quantity -= quantity_to_remove
 
     def did_win_the_game(self):
-        if self.quantity <= 0:
+        if self._quantity <= 0:
             print("You won the game")
             return True
         else:
@@ -42,7 +42,7 @@ class Player:
     def ask_quantity(self):
         given_quantity = 0
         while given_quantity not in [1, 2, 3, 4, 5, 6]:
-            given_quantity = input(f"{self.name} how many matches do you take ?")
+            given_quantity = int(input(f"how many matches do you take ?"))
         return int(given_quantity)
 
     def _get_name(self):
@@ -54,41 +54,31 @@ class Player:
     def _get_is_winner(self):
         return self._is_winner
 
-    def win(self):
+    def _set_win(self):
         self._is_winner = True
 
 
-def end_game():
-    print("game is over")
-
-
 class Game:
-    def __init__(self, game_nb):
-        self.round = game_nb
-
     # initialize the game
     match_box = MatchBox(50)
     quantity_of_players = int(input("How many players ?"))
-    for player in quantity_of_players:
-        player_name = input(f"Hello player {player}, what is your name ?")
-        player1 = Player(player_name, False)
+    #for player in quantity_of_players:
+    player_name = input(f"Hello player what is your name ?")
+
+    player1 = Player(player_name, False)
 
     # play the game
-    while match_box._quantity > 50:
+    while match_box._quantity > 0:
         quantity_played = player1.ask_quantity()
         match_box.remove_matches(quantity_played)
-
-
+        print(f"there are XX matches left")
+    player1._set_win()
+    print(f"end of the game {player1._get_name()} won")
 
 
 if __name__ == '__main__':
     # given_quantity = ask_quantity()
-    match_box = MatchBox(50)
-    match_box.get_quantity()
-    player1 = Player("Elsa", False)
-    player2 = Player("Alissia", False)
-    match_box.remove_matches(3, player1)
-    player1.get_is_winner()
+    game1 = Game()
 
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
