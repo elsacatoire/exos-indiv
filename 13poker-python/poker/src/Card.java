@@ -5,7 +5,6 @@ public class Card {
     public String getValue(){
         return value;
     }
-
     public String getSuit(){
         return suit;
     }
